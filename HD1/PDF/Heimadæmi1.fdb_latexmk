@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1674168500 "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.tex" "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.pdf" "Heimadæmi1" 1674168501
-  "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.aux" 1674168501 878 908dc50c3991284459c4f99a62a6e3e1 ""
-  "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.tex" 1674168500 11349 bffc3f8315f7df5bff286e5a89faf516 ""
+["pdflatex"] 1674168692 "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.tex" "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.pdf" "Heimadæmi1" 1674168693
+  "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.aux" 1674168693 878 908dc50c3991284459c4f99a62a6e3e1 ""
+  "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.tex" 1674168691 11436 d2ad61c8416143d2948af25119cf1f29 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -231,13 +231,13 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647658056 5172816 33040c3d85f665625c2e29c7a32ec05a ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1629912519 2724735 0b047ab543aa1dab505c8939ff867081 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "Heimadæmi1.aux" 1674168501 878 908dc50c3991284459c4f99a62a6e3e1 "pdflatex"
-  "Heimadæmi1.out" 1674168501 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Heimadæmi1.tex" 1674168500 11349 bffc3f8315f7df5bff286e5a89faf516 ""
+  "Heimadæmi1.aux" 1674168693 878 908dc50c3991284459c4f99a62a6e3e1 "pdflatex"
+  "Heimadæmi1.out" 1674168692 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Heimadæmi1.tex" 1674168691 11436 d2ad61c8416143d2948af25119cf1f29 ""
   (generated)
-  "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.log"
   "Heimadæmi1.aux"
-  "Heimadæmi1.out"
   "Heimadæmi1.pdf"
+  "Heimadæmi1.out"
   "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.pdf"
   "Heimadæmi1.log"
+  "/Users/kari/Github/TOL203G/HD1/PDF/Heimadæmi1.log"
