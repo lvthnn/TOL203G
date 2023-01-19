@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/kari/.local/share/jars/princeton/algs4.jar"
+    ]
+}

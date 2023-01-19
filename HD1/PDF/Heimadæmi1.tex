@@ -1,0 +1,271 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Íslenskan jaaá
+\usepackage[icelandic]{babel}
+\usepackage[T1]{fontenc}
+
+% Pakkar
+
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage{titlesec}
+\usepackage{calc}
+\usepackage{url}
+
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\usepackage{times, mathptmx}
+\usepackage[scaled=0.85]{beramono}
+
+\newcommand{\doctitle}{\uppercase{HEIMADÆMI 2}}
+\newcommand{\coursename}{Tölvunarfræði 2}
+\newcommand{\coursenum}{TÖL203G}
+
+% Stærðfræðitákn
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ——— Mengjatákn
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% ——— Vigrar
+\renewcommand{\u}{\mathbf{u}}
+\renewcommand{\v}{\mathbf{v}}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+
+\begin{document}
+\vspace*{.5cm}
+\centerline{\bfseries\Large\doctitle}
+\medskip
+\centerline{\large\coursenum\ \coursename}
+\bigskip
+\bigskip
+\centerline{\large Kári Hlynsson}
+\bigskip
+\centerline{Háskóli Íslands}
+\medskip
+\centerline{Vormisseri 2023}
+\bigskip
+\bigskip
+
+\large
+
+\noindent
+\emph{Verkefni 1.} \\ 
+Lesið \href{https://pubmed.ncbi.nlm.nih.gov/27885031/}{þessa grein} úr tímaritinu Science.  Segið frá meginniðurstöðum 
+hennar í örfáum orðum.
+
+\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Example:},labelindent=0em]
+  \item[Úrlausn]
+  Í greininni eru yfirburðir endurheimtunar (\emph{memory retrieval}) sem námsaðferð undirstrikaðir. 
+  Að lesa texta aftur til þess að festa efni betur í minni reynist síður skilvirkt, en talið er að það myndi ekki jafn sterkar minnisbrautir í heilanum. 
+  Jafnframt hefur endurheimt endurtekið reynst vera sterkasta aðferðin við að leggja námsefni á minnið borið saman við fjölda annarra aðferða.
+
+  \medskip
+  Rannsóknir sýna að þegar streita hefur neikvæð áhrif á getu einstaklings til að framkalla atriði úr minni. 
+  Þetta er talið vera vegna þess að stresshormónið cortisol hefur áhrif á þau svæði í heilanum sem koma að minnisendurheimt, þ.á m. dreka (\emph{hippocampus}). 
+  Hormónið binst efnaviðtökum á þessum svæðum og veldum röskunum í ferlum sem koma að minnisendurheimt. Hin umrædda aðferð er öflug í ljósi þess að hún myndar nýjar brautir fyrir upplýsingar að ferðast þrátt fyrir raskanirnar, og þannig hefur streita ekki jafn mikil áhrif og ella.
+\end{description}
+
+\newpage
+\noindent
+\emph{Verkefni 2.} \\ 
+\href{https://www.pnas.org/doi/10.1073/pnas.1821936116}{Þessi grein} fjallar um tilraun með virka (\emph{active}) kennsluaðferð í eðlisfræði 
+í Harvard háskóla.  Lesið a.m.k. inngang greinarinnar og skoðið súluritin í Myndum 1 og 2 
+(\emph{Fig. 1} og \emph{Fig. 2}).  Í þessum súluritum koma fyrir hugtökin TOF (\emph{Test of Learning}) og FOL 
+(\emph{Feeling of Learning}).  Skrifið nokkrar setningar þar sem þið reynið að útskýra hvers 
+vegna fyrstu tvær súlurnar (með skyggðum bakgrunni) í myndunum eru svona ólíkar 
+hinum súlunum.
+
+\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Example:},labelindent=0em]
+  \item[Úrlausn]
+  Í þessari rannsókn vildu rannsóknarmenn sýna kosti þess að kennsla færi fram á virku formi — þ.e. að námi væri miðað í gegnum samvinnu nemanda, hópverkefnum, umræðuhópum og almennt aðferðum sem svipa ekki til hefðbundinna fyrirlestra. 
+  Svo virðist vera sem virk kennsla sýni mikla yfirburði í því hvernig efnið kemst til skila ef marka má frammistöðu nemenda á prófum, en þessi aðferð virðist aftur á móti síður vekja tilfinningu um að skilja efnið vel. 
+  Að því leyti er algengara að nemendur upplifi ósætti með kennslu og því er talið að hið hefðbundna fyrirkomulag fyrirlestra er fast í sessi.
+
+  \medskip
+  Ef litið er á gröfin má sjá einkunnir úr prófi sem mat þekkingu á námsefninu, en til hliðsjónar er spurningalisti sem metur tilfinningu nemanda fyrir náminu. 
+  Sjá má að nemendur sem fengu virka kennslu voru með áberandi hærri einkunn á prófinu, en virðast allt í allt vera ósáttari með kennsluhætti. 
+  Þetta er sýnt á myndum 1 og 2 í greininni en þetta er gert fyrir tvo mismunandi áfanga.
+\end{description}
+
+\newpage
+\noindent
+\emph{Verkefni 3.} \\
+Hægt er að hugsa sér að hlaði sé notaður til þess að útfæra bak-örina í vafra.  
+Þegar notandi fer á nýja vefsíðu þá er núverandi síða sett efst á hlaða (\emph{push}). 
+Þegar notandinn ýtir svo á bakörina þá er efsta síðan á hlaðanum tekin (\emph{pop}) og sýnd.
+
+\begin{enumerate}[label=(\alph*)]
+  \item Vafrar hafa líka áfram-ör, sem er virk ef notandinn hefur farið til baka.  Hvernig 
+  væri hægt að útfæra hana með aðstoð hlaða?
+  \item Mörg ritvinnsluforrit hafa aðgerðirnar \emph{undo}/\emph{redo} (afturkalla/ endurgera).  Hvernig 
+  væri hægt að útfæra þær með hlöðum? 
+\end{enumerate}
+
+\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Example:},labelindent=0em, ]
+  \item[Úrlausn]
+  \begin{enumerate}[label = (\alph*)]
+    \item Við notum tvo hlaða, $N$ og $P$. Hlaðinn $P$ útfærir bak-örina
+          en í hvert skipti sem við ýtum á bak-örina þá grípum við skil
+          \emph{pop}-aðgerðarinnar á $P$ og setjum á $N$. Ef við ýtum á áfram takkann
+          er efsta stakið tekið af $N$ (\emph{pop}) og sýnt.
+    \item Útfærslan er í raun sú sama og í (a) lið. Við höfum tvo hlaða, $U$ og $R$. Í hvert skipti
+          sem forritið nemur breytingar í skjalinu er upplýsingum um breytingarnar bætt ofan á $U$.
+          Að smella á \emph{Undo} hnappinn sækir efsta stakið af $U$ en skilunum er bætt á $R$. 
+          
+          \medskip
+          Ef við ýtum síðan á \emph{Redo} sækjum við efsta stakið (aðgerðina sem var afturkölluð) af $R$ og færum aftur inn í skjalið.
+          Hvert skipti sem ritvinnsluforritið nemur breytingar í skjalinu tæmum við $R$, því þá er ekki hægt að endurgera breytingar án
+          þess að yfirskrifa skjalið. $U$ helst óbreyttur.
+  \end{enumerate}
+\end{description}
+
+
+\newpage
+\noindent
+\emph{Verkefni 4.} \\
+Notendaforrit framkvæmir blöndu af \emph{push} og \emph{pop}-aðgerðum.  
+\emph{push}-aðgerðin setur heiltölurnar $0, 1, \ldots, 9$ í röð á hlaðann, en \emph{pop}-
+aðgerðirnar prenta út skilagildið.  Sýnið hvenær \emph{pop}-aðgerðirnar koma í röð aðgerða í 
+eftirfarandi úttaksrunum.  Fyrir þær úttaksrunur sem ekki eru mögulegar og útskýrið hvers vegna.
+\begin{enumerate}[label=(\alph*)]
+  \item \texttt{3  2  4  6  7  5  1  9  8  0 }
+  \item \texttt{1  2  4  0  3  5  6  8  9  7 }
+  \item \texttt{1  2  0  4  5  3  7  8  6  9 }
+\end{enumerate}
+
+\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Example:},labelindent=0em, ]
+  \item[Úrlausn]
+  \begin{enumerate}[label = (\alph*)]
+    \item \texttt{0 1 2 3 - - 4 - 5 6 - 7 - - - 8 9 - - -}
+    \item Það er ekki hægt að mynda þessa runu með hlaða. Við getum kallað fram
+          fyrstu þrjá stafina með \texttt{0 1 - 2 - 3 4 -} en þá eru stökin eftir
+          á hlaðanum \texttt{3} og \texttt{0}, með hið síðurnefnda neðst á hlaðanum.
+          Því verður \texttt{3} að koma á undan \texttt{0} svo það er ekki hægt að
+          mynda þessa röðun.
+    \item \texttt{0 1 - 2 - - 3 4 - 5 - - 6 7 - 8 - - 9 -}
+  \end{enumerate}
+\end{description}
+
+
+\newpage
+\noindent
+\emph{Verkefni 5.} \\
+Notið tengda listann fyrir strengi: \texttt{LinkedListOfString.java} og bætið við 
+hann aðferðinni \texttt{delBack()} sem eyðir út aftasta hnútinum og skilar strengnum sem 
+hann inniheldur.  Athugið að það eru nokkur jaðartilvik sem aðferðin þarf að ráða við.  
+Uppfærið einnig prófunarfallið þannig að það noti aðferðina til að eyða öllum stökum út 
+úr þriggja staka lista (sem það býr til).  Sýnið aðferðina og skjámynd af keyrslu. 
+
+\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Example:},labelindent=0em, ]
+  \item[Úrlausn]
+  Forritskóðinn er sýndur hér fyrir neðan.
+  \begin{lstlisting}[language=java]
+    // delete and return the last item in the list
+    public String delBack() {
+      if (isEmpty())
+        throw new NoSuchElementException("No items in list");
+
+      Node curr = first;
+      String item = first.item;
+
+      if (N == 1) {
+        curr = null;
+      } else {
+        while (curr.next.next != null)
+          curr = curr.next;
+
+        item = curr.next.item;
+        curr.next = null;
+      }
+
+      N--;
+      return item;
+    }
+  \end{lstlisting}
+  Útfærum síðan \texttt{main} fall til að prófa þessa aðferð:
+  \begin{lstlisting}[language=java]
+    // test client
+    public static void main(String[] args) {
+      LinkedListOfStrings list = new LinkedListOfStrings();
+      list.addFront("item1");
+      list.addFront("item2");
+      list.addFront("item3");
+  
+      list.printList();
+      list.delBack();
+  
+      list.printList();
+      list.delBack();
+  
+      list.printList();
+      list.delBack();
+  
+      list.printList();
+    }
+  \end{lstlisting}
+  Fyrir neðan er sýnt "skjáskot" af keyrslu, eða hvert úttakið er.
+  \begin{lstlisting}]
+    $ java LinkedListOfStrings
+    item3
+    item2
+    item1
+    item3
+    item2
+    item3
+  \end{lstlisting}
+  Sem stemmir við aðgerðaröðina: í fyrstu höfum við \texttt{item1}, \texttt{item2} og \texttt{item3}
+  og prentum. Köllum á \texttt{delBack()} í fyrsta sinn en þá eyðist \texttt{item1} aftast á listanum
+  og eftir sitja \texttt{item3} og \texttt{item2}. Þegar við köllum á \texttt{delBack()} í annað sinn eyðist
+  \texttt{item2} og einungis \texttt{item3} er eftir. Þegar við köllum í síðasta skipti á aðferðina er ekkert
+  eftir á listanum og við prentum tóma línu.
+\end{description}
+image.png
+\end{document}
