@@ -184,6 +184,7 @@ Ef svo er ekki þá setjum við $B_{ij} = B_{i, j-1} + A_j$ því við höfum þ
     \centering
     \includegraphics[width=\textwidth]{img/arraysum_keyrsla.png}
     \caption{Keyrsla á \texttt{ArraySum.java} og söfnun gagna}
+    \label{mynd2}
 \end{figure}
 
 \noindent
@@ -194,8 +195,15 @@ Látum $T_s(N)$ tákna tímaflækju meintu hægari útfærslunnar en $T_f(N)$ t�
 hraðari útfærsluna. Við spáðum fyrir að $T_s(N) \sim \mathcal O(N^3)$ og að $T_f(N) \sim \mathcal O(N^2)$.
 Við keyrum notendaforritið í skel og beinum staðalúttakinu í csv skrá til frekari úrvinnslu, eins og mynd fyrir neðan sýnir.
 
-Mynd fyrir neðan sýnir keyrsluna á \texttt{ArraySum.java}. Notuð var stillingin \texttt{-Xmx13G} til að gefa forritinu $13$ GB
+Mynd \ref{mynd2} sýnir keyrsluna á \texttt{ArraySum.java}. Stillingin \texttt{-Xmx13G} til að gefa forritinu $13$ GB
 til keyrslu en þá getum við fengið aðeins meiri gögn. Hið sama var endurtekið á nýjan leik fyrir hægari útfærsluna.
+Línulegt aðhvarf var framkvæmt í R þar sem við fengum hallatölu $2.292 \approx 2$ fyrir \texttt{arraysum_fast} en $2.832 \approx 3$
+fyrir \texttt{arraysum} sem ber einmitt saman við tilgátu okkar um tímaflækju reikniritanna.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{img/speed_comparison_nonlog.png}
+\end{figure}
 
 
 \newpage
