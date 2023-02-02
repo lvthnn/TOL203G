@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[12pt, a4paper, hidelinks]{article}
 
 \usepackage[icelandic]{babel}
 \usepackage[T1]{fontenc}
@@ -21,35 +21,6 @@
 \usepackage{booktabs}
 \usepackage{enumitem}
 
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
-\makeatletter
-\newenvironment{breakablealgorithm}
-  {% \begin{breakablealgorithm}
-   \begin{center}
-	 \refstepcounter{algorithm}% New algorithm
-	 \hrule height.8pt depth0pt \kern2pt% \@fs@pre for \@fs@ruled
-	 \renewcommand{\caption}[2][\relax]{% Make a new \caption
-	   {\raggedright\textbf{\fname@algorithm~\thealgorithm} ##2\par}%
-	   \ifx\relax##1\relax % #1 is \relax
-		 \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
-	   \else % #1 is not \relax
-		 \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
-	   \fi
-	   \kern2pt\hrule\kern2pt
-	 }
-  }{% \end{breakablealgorithm}
-	 \kern2pt\hrule\relax% \@fs@post for \@fs@ruled
-   \end{center}
-  }
-\makeatother
-
-\algrenewcommand{\algorithmiccomment}[1]{\{#1\}}
-\algrenewcommand{\algorithmicprocedure}[2]{\textbf{procedure}#1}
-\algrenewcommand\algorithmicdo{}
-\newcommand\InlineIf[2]{\State \textbf{if} #1 \textbf{then} #2}
-\newcommand\InlineElse[1]{\State \textbf{else} #1}
-
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -59,7 +30,7 @@
 \fancyfoot[C]{\thepage}
 
 \newcommand{\doctitle}{\uppercase{Heimadæmi 3}}
-\newcommand{\coursename}{Tölvunarfræði 2\footnote{Slóð á Github source kóða: }}
+\newcommand{\coursename}{Tölvunarfræði 2}
 \newcommand{\coursenum}{TÖL203G}
 
 % ——— Mengjatákn
@@ -88,7 +59,7 @@
 \centerline{\large\coursenum\ \coursename}
 \bigskip
 
-\centerline{\large Kári Hlynsson}
+\centerline{\large Kári Hlynsson\footnote{Slóð á Github kóða: \url{https://github.com/lvthnn/TOL203G/tree/master/HD3}}}
 \bigskip
 \centerline{Háskóli Íslands}
 \medskip
@@ -112,7 +83,7 @@ Breytingarnar eru lítillegar og sjást fyrir neðan í forriti \ref{forrit1}.
 
 \begin{listing}[ht!]
     \centering
-    \inputminted[firstline=49, lastline=65, linenos]{java}{../src/V1/FourSumFast.java}
+    \inputminted[firstline=49, lastline=64, linenos]{java}{../src/V1/FourSumFast.java}
     \caption{Fallið \texttt{count} í \texttt{FourSumFast.java}}
     \label{forrit1}
 \end{listing}
@@ -150,7 +121,8 @@ Framhald af æfingadæminu að ofan.
 \noindent
 \textbf{\large Lausn} \medskip \\
 \textbf{Hluti (a)} \medskip \\
-Látum $\sigma(i, j) \coloneqq \sum_{k = i}^j a_k$. Við getum sett upp töflu sem sýnir hvernig
+Látum $\sigma(i, j) \coloneqq \sum_{k = i}^j a_k$.\footnote{Við notum hér bilið $1, \ldots, N$ í stað $0, \ldots, N-1$
+eins og venja er fyrir í stærðfræðilegum rithætti fyrir runur. Þá er inntakið okkar heiltöluruna á forminu $a_1, \ldots, a_N$.} Við getum sett upp töflu sem sýnir hvernig
 fylkið $B$ lítur út fyrir gefna inntaksstærð $N$:
 
 \renewcommand{\arraystretch}{1.25}
@@ -180,22 +152,78 @@ m.ö.o. er $T(N) \sim \Omega(N^2)$.
 \newpage
 \noindent
 \textbf{Hluti (b)} \medskip \\
-Við skulum hefja umfjöllunina á upprunalega fallinu.
+Við skulum hefja umfjöllunina á upprunalega fallinu. Ef við útfærum sauðakóðann
+sem er gefinn í æfingadæminu í Java fáum við eftirfarandi forritsbút:
 
-% \begin{center}
-%     \begin{algorithmic}[1]
-%         \Procedure{\emph{arraysum}}{$A$ : integer array $a_1, \ldots, a_N$}
-%         \State res $\coloneqq 0$
-%         \For{$i \coloneqq 1$ to $N$}
-%         \For{$j \coloneqq i + 1$ to $N$}
-%         \State res $\coloneqq$ res $+ \sum_{k = i}^j a_k$
-%         \EndFor
-%         \EndFor
-%         \State $\textbf{return}$ res
-%         \EndProcedure
-%     \end{algorithmic}
-% \end{center}
+\begin{listing}[ht!]
+    \centering
+    \inputminted[firstline=13, lastline=22, linenos]{java}{../src/V2/ArraySum.java}
+    \caption{Fallið \texttt{arraysum} (hægari útfærsla)}
+    \label{forrit2}
+\end{listing}
+
+\noindent
+Í þessari aðferð útfærum við hlutsummufallið $\sigma(i, j)$ með því að ítra í gegnum bilið
+með $i \leq k \leq j$, sækja gildið $a_k$ hverju sinni og leggja við $b_{ij}$. Þessi aðferð
+er línuleg, þ.e. kostnaður hennar er $N$ á heildina litið og því er tímaflækja þessa forritsbúts
+$T(n) \sim \mathcal O(N^3)$.
+
+Hin útfærslan er mun hraðvirkari. Hún gengur þannig fyrir sig að við ítrum sem áður í gegnum fylkið.
+Ef við erum í hornalínustaki er það fyrsta stakið sem leggur eitthvað til summunnar og því setjum við
+einfaldlega $B_{ij} = A_i$ ef $i = j$.\footnote{Þetta getur allt að eins verið $A_j$ því $A_i = A_j$ því $i = j$.} 
+Ef svo er ekki þá setjum við $B_{ij} = B_{i, j-1} + A_j$ því við höfum þegar reiknað $B_{i, j-1}$. Forritsbúturinn er gefinn fyrir neðan:
+
+\begin{listing}[ht!]
+    \centering 
+    \inputminted[firstline=31, lastline=39, linenos]{java}{../src/V2/ArraySum.java}
+    \caption{Fallið \texttt{arraysum\_fast} (hraðari útfærsla)}
+    \label{forrit3}
+\end{listing}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{img/arraysum_keyrsla.png}
+    \caption{Keyrsla á \texttt{ArraySum.java} og söfnun gagna}
+\end{figure}
+
+\noindent
+Útfærslan í forriti \ref{forrit3} tryggir $\sigma(i, j) \sim \mathcal O(1)$ þ.e. summuaðgerðin er fasti hverju sinni svo við
+búumst við því að $T(N) \sim \mathcal O(N^2)$ fyrir þessa útfærslu. Við göngum úr skugga um þetta með mælingum.
+
+Látum $T_s(N)$ tákna tímaflækju meintu hægari útfærslunnar en $T_f(N)$ tákna meintu
+hraðari útfærsluna. Við spáðum fyrir að $T_s(N) \sim \mathcal O(N^3)$ og að $T_f(N) \sim \mathcal O(N^2)$.
+Við keyrum notendaforritið í skel og beinum staðalúttakinu í csv skrá til frekari úrvinnslu, eins og mynd fyrir neðan sýnir.
+
+Mynd fyrir neðan sýnir keyrsluna á \texttt{ArraySum.java}. Notuð var stillingin \texttt{-Xmx13G} til að gefa forritinu $13$ GB
+til keyrslu en þá getum við fengið aðeins meiri gögn. Hið sama var endurtekið á nýjan leik fyrir hægari útfærsluna.
 
 
+\newpage
+\noindent
+\textbf{\large Verkefni 3} \medskip \\
+Tiltekið hótel hefur $N$ herbergi, sem eru í röð á löngum gangi. Herbergi $0$ er næst móttökunni, en herbergi $N-1$ er lengst í burtu.
+Öll herbergin frá $0$ til $F-1$, en herbergi $F$ til $N-1$ eru laus. Við viljum sjálf vera í herbergi $F$, en við vitum ekki gildið á $F$
+(aðeins að $F < N$). Til þess að finna fyrsta lausa herbergið getum við aðeins kannað eitt herbergi í einu með því að banka á hurðina og kíkja
+inn. Við viljum lágmarka fjölda skipta sem við bönkum á hurðir í versta tilfelli.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Hver er versta tilfellis tími (sem fall af $N$) á reikniriti sem byrjar á herbergi $0$ og rekur sig út eftir ganginum þar til fyrsta
+    lausa herbergið er fundið?
+    \item Lýsið reikniriti sem notar í versta falli $\log N$ tíma til að finna fyrsta lausa herbergið.
+    \item Ef $N$ er mikið stærra en $F$, þá er hægt að gera betur og nota aðeins $\sim 2 \log F$ tíma til þess að finna fyrsta lausa herbergið.
+    Lýsið þessari aðferð og rökstyðjið vaxtarhraða hennar.
+\end{enumerate}
+
+\medskip
+\noindent
+\textbf{\large Lausn} \medskip \\
+\textbf{Hluti (a)} \medskip \\
+Ef við gefum okkur að aðferðin er að fara hurð eftir hurð eftir ganginum fæst versta tilfellið þegar
+$F = N-1$. Þá er tímaflækjan nokkurn veginn $\sim N$.
+
+\medskip
+\noindent
+\textbf{Hluti (b)} \medskip \\
+Til þess að útfæra þetta notum við afbrigði af binary search.
 
 \end{document}

@@ -1,6 +1,4 @@
 import edu.princeton.cs.algs4.StdRandom;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ArraySum {
 
@@ -36,7 +34,7 @@ public class ArraySum {
 
     for (int i = 0; i < N; i++)
       for (int j = i; j < N; j++)
-        B[i][j] = (i == j) ? A[i] : A[j] + B[i][j - 1];
+        B[i][j] = (i == j) ? A[i] : B[i][j - 1] + A[j];
     return B;
   }
 
@@ -88,14 +86,22 @@ public class ArraySum {
    * Test case.
    *
    * @param N size of integer array
+   * @param S number of simulations per value of N
+   * @param f run mode - "fast" runs fast mode, else slow
    */
   public static void main(String[] args) {
     int N = Integer.parseInt(args[0]);
-    String f = args[1];
+    int S = Integer.parseInt(args[1]);
+    String f = args[2];
 
-    System.out.println("T\tN");
+    System.out.printf("%12s\t%7s\n", "N", "T");
     for (int i = 1; i < N; i *= 2) {
-      System.out.printf("%12d\t%7.1f\n", i, timeFunc(i, f));
+      double mean_t = 0;
+      for (int s = 0; s < S; s++) 
+        mean_t += timeFunc(i, f);
+      mean_t /= S;
+
+      System.out.printf("%12d\t%7.1f\n", i, mean_t);
     }
 
   }
