@@ -7,3 +7,6 @@ eftir númeri á verkefni.
 
 # V2
 - ArraySum.java
+
+# V3
+- HotelRoom.java
