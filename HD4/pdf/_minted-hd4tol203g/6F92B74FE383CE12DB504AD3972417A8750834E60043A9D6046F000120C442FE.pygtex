@@ -124,7 +124,8 @@
 \PYG{+w}{      }\PYG{n}{Stopwatch}\PYG{+w}{ }\PYG{n}{timer}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Stopwatch}\PYG{p}{();}
 \PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{f}\PYG{p}{.}\PYG{n+na}{equals}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}original\PYGZdq{}}\PYG{p}{))}\PYG{+w}{  }\PYG{n}{Selection}\PYG{p}{.}\PYG{n+na}{sort\PYGZus{}original}\PYG{p}{(}\PYG{n}{a}\PYG{p}{);}
 \PYG{+w}{      }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{f}\PYG{p}{.}\PYG{n+na}{equals}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}fast\PYGZdq{}}\PYG{p}{))}\PYG{+w}{ }\PYG{n}{Selection}\PYG{p}{.}\PYG{n+na}{sort}\PYG{p}{(}\PYG{n}{a}\PYG{p}{);}
-\PYG{+w}{      }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mf}{0.0}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{IllegalArgumentException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}f can only be \PYGZsq{}original\PYGZsq{}\PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }
+\PYG{+w}{          }\PYG{l+s}{\PYGZdq{}or \PYGZsq{}fast\PYGZsq{}\PYGZdq{}}\PYG{p}{);}
 \PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{timer}\PYG{p}{.}\PYG{n+na}{elapsedTime}\PYG{p}{();}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.8.25)  9 FEB 2023 17:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.8.25)  9 FEB 2023 17:54
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -843,10 +843,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3 </Users/kari/Github/TOL203G/HD4/pdf/img/CardDeal_keyrsla.png>] (/Users/kari/Github/TOL203G/HD4/pdf/_minted-hd4tol203g/3B0ED9691B99DB4E566A12DDF743DA5D750834E60043A9D6046F000120C442FE.pygtex)
+[3 </Users/kari/Github/TOL203G/HD4/pdf/img/CardDeal_keyrsla.png>] (/Users/kari/Github/TOL203G/HD4/pdf/_minted-hd4tol203g/6F92B74FE383CE12DB504AD3972417A8750834E60043A9D6046F000120C442FE.pygtex)
 \openout4 = `hd4tol203g.pyg'.
 
- (/Users/kari/Github/TOL203G/HD4/pdf/_minted-hd4tol203g/FD6CC4A63C2E84211C73C5A023BCAE728549845F54B7D76DEDD5602A7C65FE73.pygtex) (/Users/kari/Github/TOL203G/HD4/pdf/_minted-hd4tol203g/3B0ED9691B99DB4E566A12DDF743DA5D750834E60043A9D6046F000120C442FE.pygtex)
+ (/Users/kari/Github/TOL203G/HD4/pdf/_minted-hd4tol203g/FD6CC4A63C2E84211C73C5A023BCAE728549845F54B7D76DEDD5602A7C65FE73.pygtex) (/Users/kari/Github/TOL203G/HD4/pdf/_minted-hd4tol203g/6F92B74FE383CE12DB504AD3972417A8750834E60043A9D6046F000120C442FE.pygtex)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -874,12 +874,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 (Font)              scaled to size 10.20007pt on input line 35.
 )
-<img/RandomSort_1Kints.png, id=79, 462.528pt x 346.896pt>
+<img/RandomSort_1Kints.png, id=80, 462.528pt x 346.896pt>
 File: img/RandomSort_1Kints.png Graphic file (type png)
 <use img/RandomSort_1Kints.png>
-Package pdftex.def Info: img/RandomSort_1Kints.png  used on input line 216.
+Package pdftex.def Info: img/RandomSort_1Kints.png  used on input line 218.
 (pdftex.def)             Requested size: 390.0pt x 292.5128pt.
- (/Users/kari/Github/TOL203G/HD4/pdf/../src/V5/data_randomsort.txt)
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -911,43 +911,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[10]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[11]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[12] (/Users/kari/Github/TOL203G/HD4/pdf/hd4tol203g.aux)
+[10] (/Users/kari/Github/TOL203G/HD4/pdf/hd4tol203g.aux)
 Package rerunfilecheck Info: File `hd4tol203g.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 runsystem(rm hd4tol203g.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 25985 strings out of 478994
- 475291 string characters out of 5858184
- 829184 words of memory out of 5000000
- 42877 multiletter control sequences out of 15000+600000
+ 25977 strings out of 478994
+ 475050 string characters out of 5858184
+ 829182 words of memory out of 5000000
+ 42876 multiletter control sequences out of 15000+600000
  474404 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,11n,88p,670b,599s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/kari/Github/TOL203G/HD4/pdf/hd4tol203g.pdf (12 pages, 581266 bytes).
+Output written on /Users/kari/Github/TOL203G/HD4/pdf/hd4tol203g.pdf (10 pages, 578403 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 166 PDF objects out of 1000 (max. 8388607)
+ 138 compressed objects within 2 object streams
+ 53 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -123,7 +123,8 @@ public class Selection {
       Stopwatch timer = new Stopwatch();
       if (f.equals("original"))  Selection.sort_original(a);
       else if (f.equals("fast")) Selection.sort(a);
-      else return 0.0;
+      else throw new IllegalArgumentException("f can only be 'original'" + 
+          "or 'fast'");
       return timer.elapsedTime();
     }
 
