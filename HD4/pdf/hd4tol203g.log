@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.1.31)  9 FEB 2023 12:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.1.31)  9 FEB 2023 13:45
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -825,17 +825,17 @@ Package rerunfilecheck Info: File `hd4tol203g.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25986 strings out of 476375
- 495151 string characters out of 5788975
- 1860299 words of memory out of 5000000
+ 25987 strings out of 476375
+ 495158 string characters out of 5788975
+ 1864299 words of memory out of 5000000
  45857 multiletter control sequences out of 15000+600000
  572650 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,11n,81p,429b,486s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/type1/bera/fvmr8a.pfb><C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/karih/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on hd4tol203g.pdf (5 pages, 98654 bytes).
+Output written on hd4tol203g.pdf (5 pages, 98924 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 500000)
+ 102 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
