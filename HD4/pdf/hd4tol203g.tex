@@ -95,20 +95,19 @@
 
 \begin{listing}[H]
     \centering
-    \inputminted[linenos, breaklines, firstline=21, lastline=25]{java}{../src/V1/Card.java}
+    \inputminted[linenos, frame=single, fontsize=\footnotesize, firstline=21, lastline=26]{java}{../src/V1/Card.java}
     \caption{Útfærsla á \texttt{toString()} í \texttt{Card} klasanum}
     \label{forrit:Card_toString}
 \end{listing}
 
 \subsubsection*{Hluti (b)}
-Útfærsluna má sjá fyrir neðan í \textsc{Forriti} \ref{forrit:CardDeal}.
 
-\inputminted[linenos]{java}{../src/V1/CardDeal.java}
-\captionof{listing}{Útfærsla á \texttt{CardDeal} klasanum\label{forrit:CardDeal}}
-
-\bigskip
-\noindent
-\textsc{Mynd} \ref{mynd:CardDeal_keyrsla} sýnir síðan keyrslu í skel fyrir neðan.
+\begin{listing}[H]
+    \centering
+    \inputminted[linenos, frame=single, fontsize=\footnotesize]{java}{../src/V1/CardDeal.java}
+    \caption{Útfærsla á \texttt{CardDeal} klasanum}
+    \label{forrit:CardDeal}
+\end{listing}
 
 \begin{figure}[H]
     \centering
@@ -127,8 +126,31 @@ svo á skránni \texttt{32Kints.txt} og athugið hvort það sé einhver hraðam
 sinnum og taka meðaltalið, því það er alltaf einhver breytileiki í keyrslutímanum. Skilið breytta fallinu og niðurstöðum
 tímamælinganna.
 
-% meðaltal sort original 2.1794999999999995
-% meðaltal sort fast	    0.6352
+\subsection*{Lausn}
+Breytta fallið er fyrir neðan í \textsc{Forriti} \ref{forrit:Selection_fast}.
+
+\begin{listing}[H]
+    \centering
+    \inputminted[linenos, frame=single, firstline=13, lastline=24, fontsize=\footnotesize]{java}{../src/V2/Selection.java}
+    \caption{(Hraðvirkari) útfærsla á valröðun}
+    \label{forrit:Selection_fast}
+\end{listing}
+\noindent
+Við höldum upprunalegu útfærslunni í klasanum sem \mintinline{java}|sort_original()| og útfærum
+eftirfarandi fall fyrir tímakeyrslu (sjá \textsc{Forrit} \ref{forrit:Selection_timeFunc}).
+
+\begin{listing}[H]
+    \centering
+    \inputminted[firstline=122, lastline=128, frame=single, linenos, fontsize=\footnotesize]{java}{../src/V2/Selection.java}
+    \caption{Útfærsla á tímamælingarfalli}
+    \label{forrit:Selection_timeFunc}
+\end{listing}
+
+\noindent
+Hvað keyrslutíma varðar er munurinn nánast enginn. Meðaltal fyrir útfærsluna okkar keyrt á skránni \texttt{32Kints.txt} 
+var $0.6063$ sekúndur með staðalfráviki $0.0511$ sekúndur. Aftur á móti var meðaltal fyrir upprunalegu útfærsluna $0.5948$
+sekúndur með staðalfrávik $0.0556$ sekúndur. Það getur ekki talist marktækur munur á hraða útfærslanna ($p = 0.3988$) og sá sem má sjá í þessum
+mælingum er eflaust tilviljanakenndur.
 
 \newpage
 
@@ -172,6 +194,31 @@ er ekki raðað þá veljum við tvo vísa \texttt{i} og \texttt{h} af handahóf
 stök \texttt{a[i]} og \texttt{a[j]} eru í langri röð í fylkinu þá víxlum við á þeim og höldum áfram. Forritið
 þetta reiknriti í Java (þið getið notað \texttt{Selection.java} sem fyrirmynd). Takið tímann á keyrslu á \texttt{1Kints.txt}.
 Keyrið forritið ykkar a.m.k. 5 sinnum og skoðið breytileikann á tímanum. Skilið Java kóðanum fyrir fallið og tímunum á keyrslunum.
+
+\subsection*{Lausn}
+
+Fallið er fyrir neðan í \textsc{Forriti} \ref{forrit:Random_sort}.
+
+\begin{listing}[H]
+    \centering
+    \inputminted[linenos, frame=single, firstline=34, lastline=43]{java}{../src/V5/Random.java}
+    \caption{Útfærsla á slembiröðun}
+    \label{forrit:Random_sort}
+\end{listing}
+
+\noindent
+Forritið var keyrt 1000 sinnum og úttakinu beint í textaskrá. Meðaltal var $0.2912$ sekúndur með staðalfráviki $0.1932$ sekúndur
+sem er talsvert hærra en það sem við höfum séð hingað til. Mynd af dreifingu á keyrslutíma er á næstu síðu á \textsc{Mynd} \ref{mynd:Keyrslutimi_RandomSort}
+ásamt töflu sem sýnir keyrslutímana.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/RandomSort_1Kints.png}
+    \caption{Dreifing á keyrslutíma slembiröðunar fyrir $N = 1000$ ($n = 1000$)}
+    \label{mynd:Keyrslutimi_RandomSort}
+\end{figure}
+
+\input{../src/V5/data_randomsort.txt}
 
 \newpage
 
@@ -282,5 +329,5 @@ sem gefið var í dæminu:
 \end{table}
 \noindent
 Eins og má sjá er sparnaðurinn talsverður við að nota Shell röðun, en það munar 20 samanburðum
-á röðunarreikniritunum. $\blacksquare$
+á röðunarreikniritunum.
 \end{document}
