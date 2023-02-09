@@ -20,6 +20,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{enumerate}
+\usepackage{multirow}
 \usepackage{tikz}
 
 \usepackage{times, mathptmx}
@@ -157,5 +158,26 @@ Nota á Shell röðun með $3x + 1$ skrefstærðum á 10-staka fylki. Þá eru t
     Sýnið fylkið eftir hvora umferð og fjölda samanburða. Berið fjölda samanburða hér saman við fjölda samanburða
     sem innsetningarröðun myndi nota á þessu fylki.
 \end{enumerate}
+
+\subsection*{Lausn}
+\subsubsection*{Hluti (a)}
+Ef fylkið er fyrirfram raðað þá keyrir innri lykkjan ekki þ.e. við þurfum ekki að víxla á stökum. Þetta er besta tilvikið og þá er
+kostnaðurinn einfaldlega stærð hlutfylkjanna sem myndast, sem til samans eru rúmlega $N$. Skoðum þetta með dæmi og tökum fylkið $1, 2, \ldots, 10$.
+
+\newcommand{\threecolumnline}{\multicolumn{3}{c}{\leaders\hbox{\rule[0.4em]{.1pt}{0.4pt}}\hfill\mbox{}}}
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{l|cccccccccc}
+        \toprule
+        \multirow{4}{*}{$h = 4$} & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 \\
+              & 10 & \threecolumnline & 6 & \threecolumnline & 2 &  \\
+              &    & 9 & \threecolumnline & 5 & \threecolumnline & 1 \\
+              \cmidrule{2-11}
+              & 2 & 1 & 8 & 7 & 6 & 5 & 4 & 3 & 10 & 9 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Fyrsta $h$-röðunin með $h = 4$.}
+\end{table}
 
 \end{document}
