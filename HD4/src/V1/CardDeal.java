@@ -26,7 +26,6 @@ public class CardDeal {
   public static Card[] deal_cards(int k, Card[] deck) {
     Card[] sample = new Card[k];
     StdRandom.shuffle(deck);
-
     for (int i = 0; i < k; i++) sample[i] = deck[i]; 
 
     return sample;

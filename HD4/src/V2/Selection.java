@@ -145,7 +145,7 @@ public class Selection {
           StdRandom.shuffle(a);
           System.out.println(timeFunc(a, M));
         }
-        // show(a);
     }
+
 }
 

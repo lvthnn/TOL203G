@@ -146,7 +146,7 @@
 \PYG{+w}{          }\PYG{n}{StdRandom}\PYG{p}{.}\PYG{n+na}{shuffle}\PYG{p}{(}\PYG{n}{a}\PYG{p}{);}
 \PYG{+w}{          }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{n}{timeFunc}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{M}\PYG{p}{));}
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
-\PYG{+w}{        }\PYG{c+c1}{// show(a);}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
 \PYG{p}{\PYGZcb{}}
 \end{Verbatim}

@@ -27,7 +27,6 @@
 \PYG{+w}{  }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n+nf}{deal\PYGZus{}cards}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{deck}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{    }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{sample}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[}\PYG{n}{k}\PYG{o}{]}\PYG{p}{;}
 \PYG{+w}{    }\PYG{n}{StdRandom}\PYG{p}{.}\PYG{n+na}{shuffle}\PYG{p}{(}\PYG{n}{deck}\PYG{p}{);}
-
 \PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{sample}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{deck}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]}\PYG{p}{;}\PYG{+w}{ }
 
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{sample}\PYG{p}{;}

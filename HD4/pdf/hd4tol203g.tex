@@ -147,6 +147,14 @@ eftirfarandi fall fyrir tímakeyrslu (sjá \textsc{Forrit} \ref{forrit:Selection
 \end{listing}
 
 \noindent
+Næst útfærum við \texttt{main} fall sem keyrir annað fallana $N$ sinnum:
+\begin{listing}[H]
+    \centering
+    \inputminted[firstline=137, lastline=148, fontsize=\footnotesize, frame=single, linenos]{java}{../src/V2/Selection.java}
+    \caption{\texttt{main} fallið í \texttt{Selection} klasanum}
+\end{listing} 
+
+\noindent
 Hvað keyrslutíma varðar er munurinn nánast enginn. Meðaltal fyrir útfærsluna okkar keyrt á skránni \texttt{32Kints.txt} 
 var $0.6063$ sekúndur með staðalfráviki $0.0511$ sekúndur. Aftur á móti var meðaltal fyrir upprunalegu útfærsluna $0.5948$
 sekúndur með staðalfrávik $0.0556$ sekúndur. Það getur ekki talist marktækur munur á hraða útfærslanna ($p = 0.3988$) og sá sem má sjá í þessum
@@ -192,7 +200,7 @@ mælingum er eflaust tilviljanakenndur.
 Við getum skilgreint röðunarreikniritið \emph{Slembiröðun}, sem virkar þannig að á meðan fylkið
 er ekki raðað þá veljum við tvo vísa \texttt{i} og \texttt{h} af handahófi (á milli $0$ og $N - 1$). Ef
 stök \texttt{a[i]} og \texttt{a[j]} eru í langri röð í fylkinu þá víxlum við á þeim og höldum áfram. Forritið
-þetta reiknriti í Java (þið getið notað \texttt{Selection.java} sem fyrirmynd). Takið tímann á keyrslu á \texttt{1Kints.txt}.
+þetta reiknirit í Java (þið getið notað \texttt{Selection.java} sem fyrirmynd). Takið tímann á keyrslu á \texttt{1Kints.txt}.
 Keyrið forritið ykkar a.m.k. 5 sinnum og skoðið breytileikann á tímanum. Skilið Java kóðanum fyrir fallið og tímunum á keyrslunum.
 
 \subsection*{Lausn}
@@ -201,7 +209,7 @@ Fallið er fyrir neðan í \textsc{Forriti} \ref{forrit:Random_sort}.
 
 \begin{listing}[H]
     \centering
-    \inputminted[linenos, frame=single, firstline=34, lastline=43]{java}{../src/V5/Random.java}
+    \inputminted[linenos, frame=single, fontsize=\footnotesize, firstline=34, lastline=43]{java}{../src/V5/Random.java}
     \caption{Útfærsla á slembiröðun}
     \label{forrit:Random_sort}
 \end{listing}
