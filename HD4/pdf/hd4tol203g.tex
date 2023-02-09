@@ -14,9 +14,12 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage[hang, flushmargin]{footmisc}
+\usepackage[labelfont=sc]{caption}
+
 
 \usepackage{xcolor}
 \usepackage{tabularx}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{enumerate}
@@ -135,7 +138,7 @@ tímamælinganna.
        \item Eins og áður sagði er valröðun ekki háð inntaki og því höfum við aftur fjölda samanburða $(N - 1) + (N - 2) + \cdots + 2 + 1 \sim N^2/2$.
        \item Látum $n$ og $m$ tákna fjöldann af gildunum $A$ og $B$ í fylkinu, í þeirri röð. Þá er $N = n + m$ heildarföldi staka í fylkinu. Án skerðingar á
        víðgildni athugum við að ef $n \gg m$ þá erum við nokkurn veginn að fást við (ii) í (a)-lið. Ef svo er ekki og $a \approx m$ þá er fjöldi samanburða áður
-       en stak finnur sinn stað í raðaða fylkinu $\frac 12 (N - i)$. Við fáum því að heildarfjöldi samanburða er $\frac 12 (N - 1) + \frac 12 (N - 2) + \cdots + 1 + \frac 12 = N^2/4$.
+       en stak finnur sinn stað í raðaða fylkinu $\frac 12 (N - i)$. Við fáum því að heildarfjöldi samanburða er $\frac 12 (N - 1) + \frac 12 (N - 2) + \cdots + 1 + \frac 12 \sim N^2/4$.
     \end{enumerate}
 
 \newpage
@@ -161,8 +164,11 @@ Nota á Shell röðun með $3x + 1$ skrefstærðum á 10-staka fylki. Þá eru t
 
 \subsection*{Lausn}
 \subsubsection*{Hluti (a)}
-Ef fylkið er fyrirfram raðað þá keyrir innri lykkjan ekki þ.e. við þurfum ekki að víxla á stökum. Þetta er besta tilvikið og þá er
-kostnaðurinn einfaldlega stærð hlutfylkjanna sem myndast, sem til samans eru rúmlega $N$. Skoðum þetta með dæmi og tökum fylkið $1, 2, \ldots, 10$.
+Besta tilvikið kemur upp þegar fylkið er fyrirfram raðað og innri lykkjan keyrir ekki. Kostnaðurinn er einfaldlega að kíkja í gegnum
+allar hlutrunurnar svo kostnaðurinn er $\Theta(N)$.
+
+\subsubsection*{Hluti (b)}
+Setjum upp rakningar af hlutröðunum í \textsc{Töflu} \ref{tafla:1rodun} og \textsc{Töflu} \ref{tafla:4rodun} hér fyrir neðan.
 
 \newcommand{\threecolumnline}{\multicolumn{3}{c}{\leaders\hbox{\rule[0.4em]{.1pt}{0.4pt}}\hfill\mbox{}}}
 
@@ -177,10 +183,14 @@ kostnaðurinn einfaldlega stærð hlutfylkjanna sem myndast, sem til samans eru 
               & 2 & 1 & 8 & 7 & 6 & 5 & 4 & 3 & 10 & 9 \\
         \bottomrule
     \end{tabular}
-    \caption{Fyrsta $h$-röðunin með $h = 4$.}
+    \caption{Fyrsta $h$-röðunin með $h = 4$.}\label{tafla:4rodun}
 \end{table}
+\noindent
+Í $4$-röðuninni (\textsc{Tafla} \ref{tafla:4rodun} er fjöldi samanburða 6 því við röðum tveimur hlutrunum sem kosta hver um sig 3 samanburði.
+Næst kemur $1$-röðunin í \textsc{Töflu} \ref{tafla:1rodun} fyrir neðan sem er venjuleg innsetningarröðun, en í henni eru framkvæmdir
+$25$ samanburðir. Til að sjá betri útskýringu, athuga \textsc{Töflu 3}.
 
-\begin{table}[ht!]
+\begin{table}[H]
    \centering
    \begin{tabular}{l|cccccccccc}
         \toprule
@@ -190,7 +200,64 @@ kostnaðurinn einfaldlega stærð hlutfylkjanna sem myndast, sem til samans eru 
             & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
         \bottomrule
    \end{tabular}
-   \caption{Seinni röðunin með $h = 1$.}
+   \caption{Seinni röðunin með $h = 1$.}\label{tafla:1rodun}
 \end{table}
 
+\newpage
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}[pos]{cc|ccccccccccccc}
+    \multicolumn{2}{c}{} & \multicolumn{10}{c}{\texttt{a[]}} \\
+    \toprule
+    $i$ & $j$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8  & 9 & Samanburðir, $S$ \\
+    \midrule
+        &     & 2 & 1 & 8 & 7 & 6 & 5 & 4 & 3 & 10 & 9 \\
+    1   & 0   & \color{red}  1 & 2 & \color{lightgray} 8 & \color{lightgray} 7 & \color{lightgray} 6 & \color{lightgray} 5 & \color{lightgray} 4 & \color{lightgray} 3 & \color{lightgray} 10 & \color{lightgray} 9 & 1\\
+    2   & 2   & \color{lightgray} 1 & \color{lightgray}  2 & \color{red} 8 & \color{lightgray} 7 & \color{lightgray} 6 & \color{lightgray} 5 & \color{lightgray} 4 & \color{lightgray} 3 & \color{lightgray} 10 & \color{lightgray} 9 & 1 \\
+    3   & 2   & \color{lightgray} 1 & \color{lightgray}  2 & \color{red} 7 & 8 & \color{lightgray} 6 & \color{lightgray} 5 & \color{lightgray} 4 & \color{lightgray} 3 & \color{lightgray} 10 & \color{lightgray} 9 & 2\\
+    4   & 2   & \color{lightgray} 1 & \color{lightgray}  2 & \color{red} 6 & 7 & 8 & \color{lightgray} 5 & \color{lightgray} 4 & \color{lightgray} 3 & \color{lightgray} 10 & \color{lightgray} 9 & 3 \\ 
+    5   & 2   & \color{lightgray} 1 & \color{lightgray}  2 & \color{red} 5 & 6 & 7 & 8 & \color{lightgray} 4 & \color{lightgray} 3 & \color{lightgray} 10 & \color{lightgray} 9 & 4 \\
+    6   & 2   & \color{lightgray} 1 & \color{lightgray}  2 & \color{red} 4 & 5 & 6 & 7 & 8 & \color{lightgray} 3 & \color{lightgray} 10 & \color{lightgray} 9 & 5 \\ 
+    7   & 2   & \color{lightgray} 1 & \color{lightgray}  2 & \color{red} 3 & 4 & 5 & 6 & 7 & 8 & \color{lightgray} 10 & \color{lightgray} 9 & 6 \\
+    8   & 8   & \color{lightgray} 1 & \color{lightgray} 2 & \color{lightgray} 3 & \color{lightgray} 4 & \color{lightgray} 5 & \color{lightgray} 6 & \color{lightgray} 7 & \color{lightgray}  8 & \color{red} 10 & \color{lightgray} 9 & 1\\
+    9   & 8   & \color{lightgray} 1 & \color{lightgray} 2 & \color{lightgray} 3 & \color{lightgray} 4 & \color{lightgray} 5 & \color{lightgray} 6 & \color{lightgray} 7 & \color{lightgray}  8 & \color{red} 9 & 10 & 2 \\
+    \midrule
+    \multicolumn{12}{c}{} & $\sum S = 25$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Rakning af $1$-röðun í Shell röðun með $N = 10$}
+\end{table}
+\noindent
+Prófum nú að bera þetta saman við fjölda samanburða ef við myndum keyra innsetningarröðun á upprunalega fylkið
+sem gefið var í dæminu:
+
+\newcommand{\g}{\color{lightgray}}
+\newcommand{\curr}{\color{red}}
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}[pos]{cc|ccccccccccccc}
+    \multicolumn{2}{c}{} & \multicolumn{10}{c}{\texttt{a[]}} \\
+    \toprule
+    $i$ & $j$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8  & 9 & Samanburðir, $S$ \\
+    \midrule
+        &     & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 \\
+    1   & 0   & \curr 9 & 10 & \g 8 & \g 7 & \g 6 & \g 5 & \g 4 & \g 3 & \g 2 & \g 1 & 1 \\
+    2   & 0   & \curr 8 & 9  & 10 & \g 7 & \g 6 & \g 5 & \g 4 & \g 3 & \g 2 & \g 1 & 2 \\ 
+    3   & 0   & \curr 7 & 8  & 9  & 10 & \g 6 & \g 5 & \g 4 & \g 3 & \g 2 & \g 1 & 3\\ 
+    4   & 0   & \curr 6 & 7  & 8  & 9  & 10 & \g 5 & \g 4 & \g 3 & \g 2 & \g 1 & 4\\
+    5   & 0   & \curr 5 & 6  & 7  & 8  & 9  & 10 & \g 4 & \g 3 & \g 2 & \g 1 & 5 \\
+    6   & 0   & \curr 4 & 5 & 6 & 7 & 8 & 9 & 10 & \g 3 & \g 2 & \g 1 & 6 \\
+    7   & 0   & \curr 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & \g 2 & \g 1 & 7 \\
+    8   & 0   & \curr 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & \g 1 & 8 \\
+    9   & 0   & \curr 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 9 \\
+    \midrule
+    \multicolumn{12}{c}{} & $\sum S = 45$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Innsetningarröðun á fylki í öfugri röð með $N = 10$.}
+\end{table}
+\noindent
+Eins og má sjá er sparnaðurinn talsverður við að nota Shell röðun, en það munar 20 samanburðum
+á röðunarreikniritunum.
 \end{document}

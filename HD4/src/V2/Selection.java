@@ -121,8 +121,9 @@ public class Selection {
     // wrapper function for timing sort implementations
     public static double timeFunc(Integer[] a, String f) {
       Stopwatch timer = new Stopwatch();
-      if (f.equals("original")) Selection.sort_original(a);
-      else Selection.sort(a);
+      if (f.equals("original"))  Selection.sort_original(a);
+      else if (f.equals("fast")) Selection.sort(a);
+      else return 0.0;
       return timer.elapsedTime();
     }
 
