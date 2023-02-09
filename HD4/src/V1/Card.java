@@ -21,7 +21,6 @@ public class Card implements Comparable<Card>{
   public String toString() {
     char[] suits = {'S', 'H', 'D', 'C'};
     String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-    
     return suits[suit] + "-" + ranks[rank - 1];
   }
 }

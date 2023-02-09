@@ -1,0 +1,47 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{edu.princeton.cs.algs4.Insertion}\PYG{p}{;}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{edu.princeton.cs.algs4.StdRandom}\PYG{p}{;}
+
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{CardDeal}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{  }\PYG{c+cm}{/**}
+\PYG{c+cm}{   * Generates sorted array of playing cards.}
+\PYG{c+cm}{   *}
+\PYG{c+cm}{   * @return a deck of playing cards}
+\PYG{c+cm}{   */}
+\PYG{+w}{  }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n+nf}{generate\PYGZus{}deck}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{deck}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[}\PYG{l+m+mi}{52}\PYG{o}{]}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{52}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{deck}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Card}\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{+w}{ }\PYG{l+m+mi}{13}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{Insertion}\PYG{p}{.}\PYG{n+na}{sort}\PYG{p}{(}\PYG{n}{deck}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{deck}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{c+cm}{/**}
+\PYG{c+cm}{   * Gathers uniform k\PYGZhy{}sized sample from deck}
+\PYG{c+cm}{   *}
+\PYG{c+cm}{   * @param k number of cards in selection}
+\PYG{c+cm}{   * @return  a random selection of k cards from the deck}
+\PYG{c+cm}{   */}
+\PYG{+w}{  }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n+nf}{deal\PYGZus{}cards}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{deck}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{sample}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Card}\PYG{o}{[}\PYG{n}{k}\PYG{o}{]}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{StdRandom}\PYG{p}{.}\PYG{n+na}{shuffle}\PYG{p}{(}\PYG{n}{deck}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{sample}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{deck}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]}\PYG{p}{;}\PYG{+w}{ }
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{sample}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{String}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{args}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{num\PYGZus{}cards}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Integer}\PYG{p}{.}\PYG{n+na}{parseInt}\PYG{p}{(}\PYG{n}{args}\PYG{o}{[}\PYG{l+m+mi}{0}\PYG{o}{]}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{deck}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{generate\PYGZus{}deck}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{n}{StdRandom}\PYG{p}{.}\PYG{n+na}{shuffle}\PYG{p}{(}\PYG{n}{deck}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{Card}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{sample}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{deal\PYGZus{}cards}\PYG{p}{(}\PYG{n}{num\PYGZus{}cards}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{deck}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Card}\PYG{+w}{ }\PYG{n}{card}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{n}{sample}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{n}{card}\PYG{p}{.}\PYG{n+na}{toString}\PYG{p}{());}
+
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

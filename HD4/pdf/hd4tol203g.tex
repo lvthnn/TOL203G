@@ -73,10 +73,8 @@
 \medskip
 \centerline{\today}
 
-\bigskip
 
 \section*{Verkefni 1}
-Þetta dæmi byggir á æfingadæminu úr dæmatímunum.
 
 \begin{enumerate}[(a)]
     \item Bætið við klasann \texttt{Card} úr æfingadæminu aðferðinni \texttt{toString()}, sem skilar
@@ -92,13 +90,32 @@
 \end{enumerate}
 
 \subsection*{Lausn}
-Forritið er útfært og sýnt í \textsc{Forriti}
+\subsubsection*{Hluti (a)}
+Útfærsluna má sjá í \textsc{Forriti} \ref{forrit:Card_toString} fyrir neðan.
 
 \begin{listing}[H]
     \centering
-    \inputminted[firstline=20, lastline=26]{java}{../../src/V1/Card.java}
+    \inputminted[linenos, breaklines, firstline=21, lastline=25]{java}{../src/V1/Card.java}
+    \caption{Útfærsla á \texttt{toString()} í \texttt{Card} klasanum}
+    \label{forrit:Card_toString}
 \end{listing}
 
+\subsubsection*{Hluti (b)}
+Útfærsluna má sjá fyrir neðan í \textsc{Forriti} \ref{forrit:CardDeal}.
+
+\inputminted[linenos]{java}{../src/V1/CardDeal.java}
+\captionof{listing}{Útfærsla á \texttt{CardDeal} klasanum\label{forrit:CardDeal}}
+
+\bigskip
+\noindent
+\textsc{Mynd} \ref{mynd:CardDeal_keyrsla} sýnir síðan keyrslu í skel fyrir neðan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/CardDeal_keyrsla.png}
+    \caption{Keyrsla á \texttt{CardDeal} í skel fyrir inntök $3, 7, 15$}
+    \label{mynd:CardDeal_keyrsla}
+\end{figure}
 
 \newpage
 
