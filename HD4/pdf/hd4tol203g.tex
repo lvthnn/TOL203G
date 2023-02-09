@@ -1,2 +1,162 @@
-meðaltal sort original 2.1794999999999995
-meðaltal sort fast	    0.6352
+\documentclass[12pt, a4paper, hidelinks]{article}
+
+\usepackage[icelandic]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+
+\usepackage{minted}
+\renewcommand{\listingscaption}{Forrit}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[hang, flushmargin]{footmisc}
+
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\usepackage{times, mathptmx}
+\usepackage[scaled=0.85]{beramono}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Kári Hlynsson}
+\fancyhead[C]{TÖL203G HEIMADÆMI 4}
+\fancyhead[R]{\today}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\doctitle}{\uppercase{Heimadæmi 3}}
+\newcommand{\coursename}{Tölvunarfræði 2}
+\newcommand{\coursenum}{TÖL203G}
+
+% ——— Mengjatákn
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% ——— Vigrar
+\renewcommand{\u}{\mathbf{u}}
+\renewcommand{\v}{\mathbf{v}}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+\title{}
+
+\begin{document}
+\thispagestyle{plain}
+\centerline{\bfseries\Large\doctitle}
+\medskip
+\centerline{\large\coursenum\ \coursename}
+\bigskip
+
+\centerline{\large Kári Hlynsson\footnote{Slóð á Github kóða: \url{https://github.com/lvthnn/TOL203G/tree/master/HD4}}}
+\bigskip
+\centerline{Háskóli Íslands}
+\medskip
+\centerline{\today}
+
+\bigskip
+
+\section*{Verkefni 1}
+Þetta dæmi byggir á æfingadæminu úr dæmatímunum.
+
+\begin{enumerate}[(a)]
+    \item Bætið við klasann \texttt{Card} úr æfingadæminu aðferðinni \texttt{toString()}, sem skilar
+    streng með gildi spilsins sem hægt er að prenta út. Þið getið notað ensku upphafsstafina fyrir spaða
+    (S), hjarta (H), tígul (D) og lauf (C). Sömuleiðis fyrir mannspilin: ás (A), kóngur (K), drottning (Q)
+    og gosi (J). Þannig á aðferðin að skila ,,H-K'' fyrir hjartakóng, ,,C-5'' fyrir laufafimmu o.s.frv.
+
+    \item Skrifið forritið \texttt{CardDeal}, sem tekur á skipanalínunni töluna $k$ sem er á bilinu 1 til 52.
+    Forritið prentar þá út $k$ spil sem valin eru af handahófi úr spilastokki. Til þess að við prentum ekki sömu
+    spilin út aftur, þá er best að búa til 52-spila fylki. Það er fyllt af öllum mögulegum spilum í venjulegri röð
+    og þetta fylki er síðan stokkað. Til þess getið þið notað aðferðina shuffle úr \texttt{StdRandom}. Síðan prentar
+    forritið út $k$ fyrstu stökin í fylkinu. Skilið kóðanum fyrir forritið og skjáskoti af keyrslu.
+\end{enumerate}
+
+\subsection*{Lausn}
+Hér kemur lausn.
+
+\newpage
+
+\section*{Verkefni 2}
+Í útfærslunni á Valröðun í bókinni þá er ekki athugað hvort við þurfum að víxla á stökum \texttt{a[i]} og \texttt{a[min]}.
+Ef \texttt{i} er jafnt og \texttt{min} þá er þessi víxlun óþörf. Bætið við \texttt{if}-setningu á undan víxlunarskipuninni
+í röðunarfallinu \texttt{sort} sem athugar hvort það þurfi að víxla. Bætið tímamælingarkóða við báðar útgáfurnar og keyrið þær
+svo á skránni \texttt{32Kints.txt} og athugið hvort það sé einhver hraðamunur. Þið ættuð að keyra hvora útgáfu a.m.k. þrisvar
+sinnum og taka meðaltalið, því það er alltaf einhver breytileiki í keyrslutímanum. Skilið breytta fallinu og niðurstöðum
+tímamælinganna.
+
+% meðaltal sort original 2.1794999999999995
+% meðaltal sort fast	    0.6352
+
+\newpage
+
+\section*{Verkefni 3}
+Þetta er spurning um hegðun valröðunar og innsetningarröðunar á tilteknu $N$-staka inntaksfylki:
+\begin{enumerate}[(a)]
+    \item Öll stökin í fylkinu hafa sama gildi:
+    \begin{enumerate}[(i)]
+        \item Hversu marga samanburði notar valröðun?
+        \item Hversu marga samanburði notar innsetningarröðun?
+    \end{enumerate}
+    \item Fylkið er óraðað en inniheldur aðeins tvö ólík gildi, $A$ og $B$. Fjöldi staka af hvoru
+    gildi er óþekktur:
+    \begin{enumerate}[(i)]
+        \item Hversu marga samanburði notar valröðun?
+        \item Hversu marga samanburði notar innsetningarröðun?
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Lausn}
+\subsubsection*{Hluti (a)}
+    \begin{enumerate}[(i)]
+        \item Valröðun notar alltaf sama fjölda samanburða því það ítrar frá vísinum \texttt{i}
+        og út í enda fylkisins. Fjöldi samanburða er því sem áður $(N - 1) + (N - 2) + \cdots + 2 + 1 \sim N^2/2$.
+        \item Innsetningarröðun stöðvar alltaf ef \texttt{a[j]} $\leq$ \texttt{a[j - 1]}, svo í þessu tilviki myndum við alltaf
+        bara líta eitt stak aftur fyrir okkur í röðun á fylkinu. Því er heildarfjöldi samanburða $N - 1 \sim N$.
+    \end{enumerate}
+\subsubsection*{Hluti (b)}
+    \begin{enumerate}[(i)]
+       \item Eins og áður sagði er valröðun ekki háð inntaki og því höfum við aftur fjölda samanburða $(N - 1) + (N - 2) + \cdots + 2 + 1 \sim N^2/2$.
+       \item Látum $n$ og $m$ tákna fjöldann af gildunum $A$ og $B$ í fylkinu, í þeirri röð. Ef $n \gg m$ þá erum við ca. að fást við (ii) í (a)-lið.
+       Ef $n \approx m$ og við gerum ráð fyrir að röðin í fylkinu sé slembin getum við skilgreint slembistærðina $X$ sem meðalfjölda samanburða sem 
+       innsetningarröðun framkvæmir úr tilteknu staki \texttt{a[i]} áður en það stöðvar. $X$ er tvíkostastærð með $p = 0.5$, þ.e. $X \sim \text{Bin}(n + m, p)$
+       en $\text E[X] = (n + m)p$ lýsir meðalfjölda samanburða sem þarf.
+    \end{enumerate}
+
+\newpage
+
+\section*{Verkefni 4}
+Við getum skilgreint röðunarreikniritið \texttt{Slembiröðun}, sem virkar þannig að á meðan fylkið
+er ekki raðað þá veljum við tvo vísa \texttt{i} og \texttt{h} af handahófi (á milli $0$ og $N - 1$). Ef
+stök \texttt{a[i]} og \texttt{a[j]} eru í langri röð í fylkinu þá víxlum við á þeim og höldum áfram. Forritið
+þetta reiknriti í Java (þið getið notað \texttt{Selection.java} sem fyrirmynd). Takið tímann á keyrslu á \texttt{1Kints.txt}.
+Keyrið forritið ykkar a.m.k. 5 sinnum og skoðið breytileikann á tímanum. Skilið Java kóðanum fyrir fallið og tímunum á keyrslunum.
+
+\newpage
+
+\section*{Verkefni 5}
+Nota á Shell röðun með $3x + 1$ skrefstærðum á 10-staka fylki. Þá eru tvær skrefstærðir: 1 og 4 (reyndar er byrjað með $h = 4$).
+\begin{enumerate}[(a)]
+    \item Hvert er besta inntak fyrir þessa tegund af Shellröðun? Rökstyðjið og sýnið heildarfjölda
+    samanburða fyrir 10-staka fylki.
+    \item Sýnið hvernig þessi Shell röðun virkar á 10-staka fylki í öfugri röð (t.d. 10, 9, $\ldots$, 2, 1).
+    Sýnið fylkið eftir hvora umferð og fjölda samanburða. Berið fjölda samanburða hér saman við fjölda samanburða
+    sem innsetningarröðun myndi nota á þessu fylki.
+\end{enumerate}
+
+\end{document}
