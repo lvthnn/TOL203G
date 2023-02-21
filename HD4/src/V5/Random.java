@@ -10,6 +10,7 @@ public class Random {
   // is the array a[] sorted?
   private static boolean isSorted(Comparable[] a) {
       return isSorted(a, 0, a.length - 1);
+      return isSorted(a, 0, a.length - 1);
   }
 
   // is the array sorted from a[lo] to a[hi]

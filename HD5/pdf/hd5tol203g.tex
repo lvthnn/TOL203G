@@ -1,0 +1,115 @@
+\documentclass[12pt, a4paper, hidelinks]{article}
+
+\usepackage[icelandic]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+
+\usepackage{minted}
+\renewcommand{\listingscaption}{Forrit}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[labelfont=sc]{caption}
+
+
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\usepackage{times, mathptmx}
+\usepackage[scaled=0.85]{beramono}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Kári Hlynsson}
+\fancyhead[C]{TÖL203G HEIMADÆMI 5}
+\fancyhead[R]{\today}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\doctitle}{\uppercase{Heimadæmi 5}}
+\newcommand{\coursename}{Tölvunarfræði 2}
+\newcommand{\coursenum}{TÖL203G}
+
+% ——— Mengjatákn
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% ——— Vigrar
+\renewcommand{\u}{\mathbf{u}}
+\renewcommand{\v}{\mathbf{v}}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+\title{}
+
+\begin{document}
+\thispagestyle{plain}
+\centerline{\bfseries\Large\doctitle}
+\medskip
+\centerline{\large\coursenum\ \coursename}
+\bigskip
+
+\centerline{\large Kári Hlynsson\footnote{Slóð á Github kóða: \url{https://github.com/lvthnn/TOL203G/tree/master/HD5}}}
+\bigskip
+\centerline{Háskóli Íslands}
+\medskip
+\centerline{\today}
+
+
+\section*{Verkefni 1}
+Skoðið Java kóðann fyrir Mergesort (\textsc{Algorithm 2.4} í bókinni, glæra 8 í fyrirlestri 9).
+Segjum að við köllum aðeins á \texttt{merge}-fallið (neðsta línan í \texttt{sort}-fallinu) ef
+\texttt{a[mid+1]} er minna en \texttt{a[mid]}.
+\begin{enumerate}[(a)]
+    \item Hvers vegna er í lagi að gera þetta?
+    \item Á hvernig inntaki myndum við græða mest á að bæta þessu inn?
+\end{enumerate}
+
+\subsection*{Lausn}
+\subsubsection*{Hluti (a)}
+Hlutverk \texttt{merge} fallsins er að raða hlutfylkjum sem hefur þegar verið raðað endurkvæmt.
+Segjum sem svo að $\texttt{a[0]} < \cdots < \texttt{a[mid]}$ og $\texttt{a[mid+1]} < \cdots < \texttt{a[n]}$.
+Ef $\texttt{a[mid]} < \texttt{a[mid+1]}$.
+
+\subsubsection*{Hluti (b)}
+Við græðum mest á þessari útfærslu ef sérhvert stak í fylkinu er í réttu hlutfylki. Til að sjá þetta betur
+skulum við taka dæmi. Látum \texttt{a[] = \{0,4,3,2,1, 8,9,6,5,7\}}. Þegar við köllum á \texttt{sort} byrjum
+við á því að sortera vinstri og hægri hlutann og fáum hlutfylkin \texttt{a[0..4] = \{0,1,2,3,4\}} og \texttt{a[5..9] = \{5,6,7,8,9\}}.
+Nú er \texttt{a[mid] < a[mid+1]} og við köllum ekki á \texttt{merge} en við sjáum jafnframt að fylkið er raðað svo það er óþarft.
+
+\newpage
+\section*{Verkefni 2}
+Leysið dæmi 2.3.18 á bls.\@ 305 í kennslubókinni. Kallið ykkur útgáfu \texttt{QuickX}
+og berið hana saman við upphaflegu útgáfuna í bókinni (\texttt{Quick.java}) með forritinu 
+\texttt{SortCompare.java}. Þið getið hent út úr \texttt{SortCompare} notkun á öðrum röðunaraðferðum.
+Skilið breyttu útgáfunni af \texttt{partition}-fallinu og niðurstöðu úr samanburði á \texttt{Quick} og
+\texttt{QuickX} í \texttt{SortCompare}. Til að fá raunhæfan samanburð notið \texttt{n = 1000000} og \texttt{trials = 10}.
+Þá ættuð þið líka að breyta útprentunarskipuninni í \texttt{SortCompare}, þannig að þið fáið fleiri aukastafi
+í hlutfallinu milli tímanna. Það ætti ekki að vera mjög mikill munur á þessum tveimur útgáfum. Hvers vegna?
+
+% Þið getið hent út úr SortCompare notkun á öðrum röðunar-
+% aðferðum.  Skilið breyttu útgáfunni af partition-fallinu og niðurstöðu úr samanburði 
+% á Quick og QuickX í SortCompare.  Til að fá raunhæfan samanburð notið n = 
+% 1000000 og trials = 10.  Þá ættuð þið líka að breyta útprentunarskipuninni í 
+% SortCompare, þannig að þið fáið fleiri aukastafi í hlutfallinu milli tímanna.  Það ætti 
+% ekki að vera mjög mikill munur á þessum tveimur útgáfum.  Hvers vegna er það? 
+
+\end{document}
