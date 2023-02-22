@@ -26,7 +26,10 @@
 \usepackage{enumerate}
 \usepackage{multirow}
 \usepackage{tikz}
+\usepackage{tikz-qtree}
 \usepackage{pifont}
+\usepackage{multicol}
+\usepackage{tcolorbox}
 
 \newcommand{\cmark}{\text{\color{Green}\ding{51}}}
 \newcommand{\xmark}{\text{\color{Red}\ding{55}}}
@@ -121,12 +124,8 @@ stakið í hlutfylkinu, miðjustak og síðasta stak.
     \label{forrit:quickx-partition}
 \end{listing}
 \noindent
-Munur í tímaflækju á \texttt{Quick} og \texttt{QuickX} er nánast enginn. 10 mælingum var safnað úr \texttt{SortCompare} á hlutfallinu $t_Q/t_X$ þar sem
-$t_Q$ er keyrslutími \texttt{Quick} og $t_X$ er keyrslutími \texttt{QuickX}. Meðaltal var $1.0036$ (staðalfrávik $0.066$) svo keyrslutími er nokkurn veginn
-sá sami. 
-
-Munurinn er lítill því \texttt{a[]} hefur þegar verið slembistokkað, svo það er alveg tilviljanakennt hvort við drögum úrtak
-úr fylkinu sem inniheldur miðjaða stærð, en hraði reikniritsins eykst auðvitað ef skiptistök eru miðjuð.
+Munur í tímaflækju á \texttt{Quick} og \texttt{QuickX} er nánast enginn. Meðaltal 10 mælinga úr \texttt{SortCompare} var $1.0036$ (staðalfrávik $0.0659$) svo keyrslutími er nokkurn veginn
+sá sami.  Munurinn er lítill því \texttt{a[]} hefur þegar verið slembistokkað og við fáum því ekki nauðsynlega gott (miðlægt) vendistak.
 
 \newpage
 
@@ -167,7 +166,140 @@ Einnig eru \texttt{4} og \texttt{5} gild skiptistök, því þau uppfylla skilyr
 \section*{Verkefni 4}
 Gefið er fylkið \texttt{[5,4,8,1,6,3,5,7]}. Sýnið hvernig það raðast með hrúguröðun (\emph{heap sort}) með því að búa til mynd
 sem er sambærileg við myndina á bls. 324 í kennslubókinni (eða á glæru 35 í fyrirlestri 11). Sýnið líka hrúguna sem tvíundartré eftir að
-fylkinu hefur verið þrúguraðað (þrep 1).
+fylkinu hefur verið hrúguraðað (þrep 1).
 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {\texttt{#1}};}}
+\newcommand*\del[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw=red,inner sep=2pt] (char) {\color{red}\texttt{#1}};}}
+
+\subsection*{Lausn}
+Tafla fyrir neðan sýnir keyrsluna á Heapsort og hvernig \texttt{a[]} breytist. Einnig eru teikningar af hrúgunni
+sem eru kannski meira lýsandi.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{cccccccccc}
+    \multicolumn{10}{*}{Bro?} //
+    % \toprule
+    % \texttt{N} & \texttt{k} & \texttt{0} & \texttt{1} & \texttt{2} & \texttt{3} & \texttt{4} & \texttt{5} & \texttt{6} & \texttt{7}
+  \end{tabular}
+\end{table}
+
+\subsubsection*{Þrep 1 — framkalla hrúguskilyrði}
+\tikzset{edge from parent/.append style={thick}}
+\begin{multicols}{2}
+\begin{figure}[H]
+  \centering
+  \Tree[ .\circled{5} [ .\circled{4} [ .\circled{1} \circled{7} ] \circled{6} ] 
+                        [ .\circled{8} \circled{3} \circled{5} ] 
+       ]
+
+  \texttt{sink(4,8)}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \Tree[.\circled{5} [.\circled{4} [.\circled{7} \circled{1} ] \circled{6} ] 
+                     [.\circled{8} \circled{3} \circled{5} ] ]
+
+  \texttt{sink(3,8)}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \Tree[.\circled{5} [.\circled{7} [.\circled{4} \circled{1} ] \circled{6} ]
+                     [.\circled{8} \circled{3} \circled{5} ] ]
+  
+  \texttt{sink(2,8)}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \Tree[.\circled{8} [.\circled{7} [.\circled{4} \circled{1} ] \circled{6} ]
+                     [.\circled{5} \circled{3} \circled{5} ] ]
+  
+  \texttt{sink(1,8)}
+\end{figure}
+\end{multicols}
+\noindent
+
+\newpage
+\subsubsection*{Þrep 2 — raða hrúgunni}
+
+\begin{multicols}{2}
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{8} [.\circled{7} [.\circled{4} \circled{1} ] \circled{6} ]
+                       [.\circled{5} \circled{3} \circled{5} ] ]
+
+    \texttt{exch(1,8), sink(1,7)}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{7} [.\circled{6} [.\circled{4} \del{8} ] \circled{1} ]
+                       [.\circled{5} \circled{3} \circled{5} ] ]
+
+    \texttt{exch(1,8), sink(1,7)}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{6} [.\circled{5} [.\circled{4} \del{8} ] \circled{1} ]
+                       [.\circled{5} \circled{3} \del{7} ] ]
+
+    \texttt{exch(1,7), sink(1,6)}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{5} [.\circled{4} [.\circled{3} \del{8} ] \circled{1} ]
+                       [.\circled{5} \del{6} \del{7} ] ]
+
+    \texttt{exch(1,6), sink(1,5)}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{5} [.\circled{4} [.\circled{3} \del{8} ] \del{5} ] 
+                       [.\circled{1} \del{6} \del{7} ] ]
+
+    \texttt{exch(1,5), sink(1,4)}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{4} [.\circled{3} [.\del{5} \del{8} ] \del{5} ] 
+                       [.\circled{1} \del{6} \del{7} ] ]
+
+    \texttt{exch(1,4), sink(1,3)}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{3} [.\circled{1} [.\del{5} \del{8} ] \del{5} ] 
+                       [.\del{4} \del{6} \del{7} ] ]
+
+    \texttt{exch(1,3), sink(1,2)}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \Tree[.\circled{1} [.\del{3} [.\del{5} \del{8} ] \del{5} ] 
+                       [.\del{4} \del{6} \del{7} ] ]
+
+    \texttt{exch(1,2), sink(1,1)}
+  \end{figure}
+
+\end{multicols}
+
+\begin{figure}[H]
+  \centering
+  \Tree[.\circled{1} [.\circled{3} [.\circled{5} \circled{8} ] \circled{5} ] 
+                     [.\circled{4} \circled{6} \circled{7} ] ]
+  \caption{Fullröðuð hrúga eftir Heapsort}
+\end{figure}
 
 \end{document}
