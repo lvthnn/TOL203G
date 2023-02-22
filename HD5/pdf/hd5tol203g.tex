@@ -105,11 +105,28 @@ Skilið breyttu útgáfunni af \texttt{partition}-fallinu og niðurstöðu úr s
 Þá ættuð þið líka að breyta útprentunarskipuninni í \texttt{SortCompare}, þannig að þið fáið fleiri aukastafi
 í hlutfallinu milli tímanna. Það ætti ekki að vera mjög mikill munur á þessum tveimur útgáfum. Hvers vegna?
 
-% Þið getið hent út úr SortCompare notkun á öðrum röðunar-
-% aðferðum.  Skilið breyttu útgáfunni af partition-fallinu og niðurstöðu úr samanburði 
-% á Quick og QuickX í SortCompare.  Til að fá raunhæfan samanburð notið n = 
-% 1000000 og trials = 10.  Þá ættuð þið líka að breyta útprentunarskipuninni í 
-% SortCompare, þannig að þið fáið fleiri aukastafi í hlutfallinu milli tímanna.  Það ætti 
-% ekki að vera mjög mikill munur á þessum tveimur útgáfum.  Hvers vegna er það? 
+\subsection*{Lausn}
+Útfærslan er til sýnis fyrir neðan í \textsc{Forriti} \ref{forrit:quickx-partition}. \texttt{median} er fall sem var útfært til
+að skila miðgildi þriggja staka. Úr því að \texttt{a[]} er stokkað í \texttt{public} útfærslunni af \texttt{sort} notum við fyrsta
+stakið í hlutfylkinu, miðjustak og síðasta stak.
+\begin{listing}[H]
+    \centering
+    \inputminted[linenos, bgcolor=lightgray!12, fontsize=\small, firstline=18, lastline=30]{java}{../src/V2/QuickX.java}
+    \caption{Útfærslan á \texttt{partition} í \texttt{QuickX} klasanum}
+    \label{forrit:quickx-partition}
+\end{listing}
+\noindent
+Munur í tímaflækju á \texttt{Quick} og \texttt{QuickX} er nánast enginn. 10 mælingum var safnað úr \texttt{SortCompare} á hlutfallinu $t_Q/t_X$ þar sem
+$t_Q$ er keyrslutími \texttt{Quick} og $t_X$ er keyrslutími \texttt{QuickX}. Meðaltal var $1.0036$ (staðalfrávik $0.066$) svo keyrslutími er nokkurn veginn
+sá sami. 
+
+Munurinn er lítill því \texttt{a[]} hefur þegar verið slembistokkað, svo það er alveg tilviljanakennt hvort við drögum úrtak
+úr fylkinu sem inniheldur miðjaða stærð, en hraði reikniritsins eykst auðvitað ef skiptistök eru miðjuð.
+
+\newpage
+
+\section*{Verkefni 3}
+Fylkinu \texttt{[2,3,1,4,5,7,6,8]} hefur verið skipt upp (\emph{partitioned}) um vendistak (og það sett á réttan stað), en það er ekki gefið upp
+hvert vendistakið var. Hver af stökunum gætu hafa verið vendistakið? Teljið upp öll möguleg stök og rökstyðjið að þau séu möguleg og hin séu það ekki.
 
 \end{document}
