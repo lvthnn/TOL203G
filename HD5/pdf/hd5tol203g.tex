@@ -9,6 +9,7 @@
 \usepackage{mathtools}
 
 \usepackage{minted}
+\usemintedstyle{manni}
 \renewcommand{\listingscaption}{Forrit}
 
 \usepackage{url}
@@ -17,7 +18,7 @@
 \usepackage[labelfont=sc]{caption}
 
 
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{graphicx}
@@ -25,6 +26,10 @@
 \usepackage{enumerate}
 \usepackage{multirow}
 \usepackage{tikz}
+\usepackage{pifont}
+
+\newcommand{\cmark}{\text{\color{Green}\ding{51}}}
+\newcommand{\xmark}{\text{\color{Red}\ding{55}}}
 
 \usepackage{times, mathptmx}
 \usepackage[scaled=0.85]{beramono}
@@ -111,7 +116,7 @@ að skila miðgildi þriggja staka. Úr því að \texttt{a[]} er stokkað í \t
 stakið í hlutfylkinu, miðjustak og síðasta stak.
 \begin{listing}[H]
     \centering
-    \inputminted[linenos, bgcolor=lightgray!12, fontsize=\small, firstline=18, lastline=30]{java}{../src/V2/QuickX.java}
+    \inputminted[linenos, fontsize=\small, firstline=18, lastline=34, frame=single]{java}{../src/V2/QuickX.java}
     \caption{Útfærslan á \texttt{partition} í \texttt{QuickX} klasanum}
     \label{forrit:quickx-partition}
 \end{listing}
@@ -128,5 +133,41 @@ Munurinn er lítill því \texttt{a[]} hefur þegar verið slembistokkað, svo �
 \section*{Verkefni 3}
 Fylkinu \texttt{[2,3,1,4,5,7,6,8]} hefur verið skipt upp (\emph{partitioned}) um vendistak (og það sett á réttan stað), en það er ekki gefið upp
 hvert vendistakið var. Hver af stökunum gætu hafa verið vendistakið? Teljið upp öll möguleg stök og rökstyðjið að þau séu möguleg og hin séu það ekki.
+
+\subsection*{Lausn}
+Við getum skoðað hvort stak sé hugsanlegt vendistak út frá eftirfarandi: ef hlutfylkið vinstra megin við stakið inniheldur bara gildi minni en eða jöfn skiptistakinu,
+og hægra hlutfylkið bara gildi stærri en eða jöfn því, þá er það gilt. Athugum að þetta getur átt við um endapunkta fylkisins, ef þeir eru stærsta/minnsta gildið í fylkinu.
+T.d. getur \texttt{8} hafa verið skiptistak en þá endar það aftast í fylkinu því þar bendir \texttt{j} í lokin. Þetta er jafnframt stærsta stakið í fylkinu og uppfyllir að
+öll stökin í vinstra hlutfylkinu eru minna en (eða jafnt og) stakið.
+
+Einnig eru \texttt{4} og \texttt{5} gild skiptistök, því þau uppfylla skilyrðið hér að ofan. Við sjáum aftur á móti að engin önnur stök í fylkinu gætu hafa verið skiptistak því
+það má finna stak í vinstra eða hægri hlutfylki þeirra sem brýtur þetta skilyrði. Tökum þetta saman í \textsc{Töflu} 1 hér fyrir neðan.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccl}
+\toprule
+  \texttt{i} & \texttt{a[i]} & Vendistak? & Athugasemdir \\
+  \midrule
+  \texttt{0} & \texttt{2} & \xmark & \texttt{1} í hægra hlutfylki, $<$ \texttt{2} \\
+  \texttt{1} & \texttt{3} & \xmark & \texttt{1} í hægra hlutfylki, $<$ \texttt{3} \\
+  \texttt{2} & \texttt{1} & \xmark & sjá athugasemdir fyrir ofan \\
+  \texttt{3} & \texttt{4} & \cmark & \\
+  \texttt{4} & \texttt{5} & \cmark & \\
+  \texttt{5} & \texttt{7} & \xmark & \texttt{6} í hægra hlutfylki $<$ \texttt{7} \\
+  \texttt{6} & \texttt{6} & \xmark & \texttt{7} í vinstra hlutfylki $>$ \texttt{6} \\
+  \texttt{7} & \texttt{8} & \cmark & \\
+\bottomrule
+\end{tabular}
+\caption{Hugsanleg vendistök fyrir Quicksort}
+\end{table}
+
+\newpage
+
+\section*{Verkefni 4}
+Gefið er fylkið \texttt{[5,4,8,1,6,3,5,7]}. Sýnið hvernig það raðast með hrúguröðun (\emph{heap sort}) með því að búa til mynd
+sem er sambærileg við myndina á bls. 324 í kennslubókinni (eða á glæru 35 í fyrirlestri 11). Sýnið líka hrúguna sem tvíundartré eftir að
+fylkinu hefur verið þrúguraðað (þrep 1).
+
 
 \end{document}
