@@ -171,29 +171,55 @@ fylkinu hefur verið hrúguraðað (þrep 1).
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {\texttt{#1}};}}
 \newcommand*\del[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw=red,inner sep=2pt] (char) {\color{red}\texttt{#1}};}}
+            \node[shape=circle,draw=white,inner sep=2pt] (char) {\color{red}\texttt{#1}};}}
+\newcommand*\circledend[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw=white,inner sep=2pt] (char) {\texttt{#1}};}}
 
 \subsection*{Lausn}
-Tafla fyrir neðan sýnir keyrsluna á Heapsort og hvernig \texttt{a[]} breytist. Einnig eru teikningar af hrúgunni
-sem eru kannski meira lýsandi.
+\textsc{Tafla} 2 fyrir neðan sýnir keyrsluna á Heapsort og hvernig \texttt{a[]} breytist.
 
+\newcommand*\exch[1]{\textcolor{red}#1}
+\newcommand*\g{\textcolor{gray}}
 \begin{table}[H]
   \centering
-  \begin{tabular}{cccccccccc}
-    \multicolumn{10}{*}{Bro?} //
-    % \toprule
-    % \texttt{N} & \texttt{k} & \texttt{0} & \texttt{1} & \texttt{2} & \texttt{3} & \texttt{4} & \texttt{5} & \texttt{6} & \texttt{7}
+  \ttfamily
+  \begin{tabular}{ccccccccccc}
+    \multicolumn{2}{c}{} & \multicolumn{9}{c}{\texttt{a[i]}} \\
+    \toprule 
+    \texttt{N} & \texttt{k}  & \texttt{0} & \texttt{1} & \texttt{2} & \texttt{3} & \texttt{4} & \texttt{5} & \texttt{6} & \texttt{7} & \texttt{8} \\
+    \cmidrule{3-11}
+    \multicolumn{2}{c}{\scriptsize \rmfamily \itshape upphaf} &                  & \texttt{5} & \texttt{4} & \texttt{8} & \texttt{1} & \texttt{6} & \texttt{3} & \texttt{5} & \texttt{7} \\
+    8          & 4           &            & 5          & 4          & 8          & \exch{7}   & 6          & 3          & 5          & \exch{1} \\
+    8          & 3           &            & 5          & 4          & 8          & 7          & 6          & 3          & 5          & 1 \\
+    8  & 2  & & 5        & \exch{7}   & 8          & \exch{4}   & 6 & 3 & 5 & 1 \\
+    8  & 1  & & \exch{8} & 7          & \exch{5}   & 4          & 6 & 3 & 5 & 1 \\
+    \multicolumn{2}{c}{\scriptsize \rmfamily \itshape röðun} & & 8        & 7          & 5          & 4          & 6 & 3 & 5 & 1 \\
+    8  & 1  & & \exch{7} & \exch{6} & \g 5 & 4 & \exch{1} & \g 3 & \g 5 & \exch{8} \\
+    7  & 1  & & \exch{6} & \exch{5} & \g 5 & 4 & 1 & \g 3 & \exch{7} & \color{gray} 8 \\
+    6  & 1  & & \exch{5} & \exch{4} & \g 5 & \exch{3} & 1 & \g 6 & \g 7 & \g 8 \\
+    5  & 1  & & \exch{5} & \g 4     & \exch{1} & \g 3 & \exch{5} & \g 6 & \g 7 & \g 8 \\
+    4  & 1  & & \exch{4} & \exch{3} & \g 1 & \exch{5} & \g 5 & \g 6 & \g 7 & \g 8 \\
+    3  & 1  & & \exch{3} & \exch{1} & \exch{4} & \g 5 & \g 5 & \g 6 & \g 7 & \g 8 \\
+    2  & 1  & & \exch{1} & \exch{3} & \g 4 & \g 5 & \g 5 & \g 6 & \g 7 & \g 8 \\
+    \multicolumn{2}{c}{\scriptsize \rmfamily \itshape raðað} & & 1 & 3 & 4 & 5 & 5 & 6 & 7 & 8 \\
+    \bottomrule
   \end{tabular}
+  \caption{Rakning á Heapsort}
+  \label{tafla:heapsort-trace}
 \end{table}
+
+\noindent
+Á næstu síðum eru myndir af breytingum á hrúgunni.
+
+\newpage
 
 \subsubsection*{Þrep 1 — framkalla hrúguskilyrði}
 \tikzset{edge from parent/.append style={thick}}
 \begin{multicols}{2}
 \begin{figure}[H]
   \centering
-  \Tree[ .\circled{5} [ .\circled{4} [ .\circled{1} \circled{7} ] \circled{6} ] 
-                        [ .\circled{8} \circled{3} \circled{5} ] 
-       ]
+  \Tree[ .\circled{5} [ .\circled{4} [.\circled{7} \circled{1} ] \circled{6} ] 
+                      [ .\circled{8} \circled{3} \circled{5} ] ]
 
   \texttt{sink(4,8)}
 \end{figure}
@@ -225,7 +251,6 @@ sem eru kannski meira lýsandi.
 \end{multicols}
 \noindent
 
-\newpage
 \subsubsection*{Þrep 2 — raða hrúgunni}
 
 \begin{multicols}{2}
@@ -297,8 +322,8 @@ sem eru kannski meira lýsandi.
 
 \begin{figure}[H]
   \centering
-  \Tree[.\circled{1} [.\circled{3} [.\circled{5} \circled{8} ] \circled{5} ] 
-                     [.\circled{4} \circled{6} \circled{7} ] ]
+  \Tree[.\circledend{1} [.\circledend{3} [.\circledend{5} \circledend{8} ] \circledend{5} ] 
+                        [.\circledend{4} \circledend{6} \circledend{7} ] ]
   \caption{Fullröðuð hrúga eftir Heapsort}
 \end{figure}
 
