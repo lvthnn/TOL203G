@@ -1,0 +1,94 @@
+\documentclass[12pt, a4paper, hidelinks]{article}
+
+\usepackage[icelandic]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+
+\usepackage{minted}
+\usemintedstyle{default}
+\renewcommand{\listingscaption}{Forrit}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[labelfont=sc]{caption}
+
+
+\usepackage[svgnames]{xcolor}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+
+\newcommand{\cmark}{\color{Green}\ding{51}}
+\newcommand{\xmark}{\color{Red}\ding{55}}
+
+\usepackage{times, mathptmx}
+\usepackage[scaled=0.85]{beramono}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Kári Hlynsson}
+\fancyhead[C]{TÖL203G HEIMADÆMI 5}
+\fancyhead[R]{\today}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\doctitle}{\uppercase{Heimadæmi 5}}
+\newcommand{\coursename}{Tölvunarfræði 2}
+\newcommand{\coursenum}{TÖL203G}
+
+% ——— Mengjatákn
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% ——— Vigrar
+\renewcommand{\u}{\mathbf{u}}
+\renewcommand{\v}{\mathbf{v}}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+\begin{document}
+\thispagestyle{plain}
+\centerline{\bfseries\Large\doctitle}
+\medskip
+\centerline{\large\coursenum\ \coursename}
+\bigskip
+
+\centerline{\large Kári Hlynsson\footnote{Slóð á Github kóða: \url{https://github.com/lvthnn/TOL203G/tree/master/HD5}}}
+\bigskip
+\centerline{Háskóli Íslands}
+\medskip
+\centerline{\today}
+
+\section*{Verkefni 1}
+Þið eigið að breyta táknatöfluútfærslunni \textsc{SequentialSearchST.java}, þannig að
+listinn sé sjálfskipandi (\emph{self-organizing}). Sjálfskipandi gagnagrindur laga sig
+að notkunarmynstri notandans, þannig að lyklar sem oft er leitað að finnast hraðar en
+þeir sem sjaldan er leitað að. Þið eigið að útfæra tiltekna útgáfu sem kallast færa-fremst
+(\emph{move-to-front}). Hún felst í því að þegar kallað er á \texttt{get(k)}, þá er hnúturinn
+með lyklinum \texttt{k} færður fremst í tengda listann (ef hann finnst). Það þýðir að ef leitað
+er aftur að \texttt{k} fljótlega þá finnst hann hratt.
+
+Þið eigið að skila breytta fallinu \text{get} og skjáskoti af keyrslu á \texttt{main}-fallinu fyrir
+inntakið \texttt{A B R A C A D A B R A}, sem þið sláið inn eða pípið úr skrá. Útkoman ætti að vera
+\texttt{D 6, C 4, R 9, B 8, A 10}, þ.e. sætisnúmerin á síðasta tilvikinu af hverjum staf.
+\end{document}

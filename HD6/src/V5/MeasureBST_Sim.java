@@ -1,6 +1,6 @@
 import edu.princeton.cs.algs4.*;
 
-public class MeasureBST {
+public class MeasureBST_Sim {
 
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
@@ -20,8 +20,7 @@ public class MeasureBST {
         int opt = (int) Math.floor(Math.log(n) / Math.log(2));
         double avg = StdStats.mean(h);
 
-        System.out.println("For n = " + n + ", optimal height is " + opt);
-        System.out.printf("Average height in " + trials + " is %3.2f, %3.2f times optimal", avg, avg/opt);
+        System.out.printf("%d \t %d \t %3.2f \t %3.2f\n", n, opt, avg, avg/opt);
 
     }
 }
