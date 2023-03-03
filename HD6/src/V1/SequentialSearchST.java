@@ -64,22 +64,20 @@ public class SequentialSearchST<Key, Value> {
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public Value get(Key key) {
-        if (key == null) throw new IllegalArgumentException("argument to get() is null");
+        if (key == null) 
+            throw new IllegalArgumentException("argument to get() is null");
+
         for (Node x = first; x != null; x = x.next) {
             if (key.equals(x.key)) {
-              // Shift nodes sequentially by 1
               for (Node y = first; y != x; y = y.next) {
-                Value t = y.val;
+                Value t = y.val; 
                 y.val = first.val;
                 first.val = t;
               }
-             
-              // Exchange first.val and x.val
-              Value t = first.val;
+
+              Value t = first.val; 
               first.val = x.val;
               x.val = t;
-
-              printLL();
               
               return first.val;
             }

@@ -134,13 +134,11 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
           return;
         }
 
-        // key is already in table
         if (i < n && keys[i].compareTo(key) == 0) {
             vals[i] = val;
             return;
         }
 
-        // insert new key-value pair
         if (n == keys.length) resize(2*keys.length);
 
         for (int j = n; j > i; j--)  {

@@ -1,0 +1,179 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{ort}\PYG{+w}{ }\PYG{n+nn}{edu.princeton.cs.algs4.*}\PYG{p}{;}
+
+\PYG{k+kd}{lic}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{SequentialSearchST}\PYG{o}{\PYGZlt{}}\PYG{n}{Key}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Value}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{ }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{           }\PYG{c+c1}{// number of key\PYGZhy{}value pairs}
+\PYG{+w}{ }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{;}\PYG{+w}{      }\PYG{c+c1}{// the linked list of key\PYGZhy{}value pairs}
+
+\PYG{+w}{ }\PYG{c+c1}{// a helper linked list data type}
+\PYG{+w}{ }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{Node}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{n}{Key}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{;}
+\PYG{+w}{     }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{n}{Value}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{;}
+\PYG{+w}{     }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{next}\PYG{p}{;}
+
+\PYG{+w}{     }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{Node}\PYG{p}{(}\PYG{n}{Key}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Value}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{next}\PYG{p}{)}\PYG{+w}{  }\PYG{p}{\PYGZob{}}
+\PYG{+w}{         }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{key}\PYG{+w}{  }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{;}
+\PYG{+w}{         }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{val}\PYG{+w}{  }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{;}
+\PYG{+w}{         }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{next}\PYG{p}{;}
+\PYG{+w}{     }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Initializes an empty symbol table.}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{SequentialSearchST}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Returns the number of key\PYGZhy{}value pairs in this symbol table.}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @return the number of key\PYGZhy{}value pairs in this symbol table}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Returns true if this symbol table is empty.}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @return \PYGZob{}@code true\PYGZcb{} if this symbol table is empty;}
+\PYG{c+cm}{  *         \PYGZob{}@code false\PYGZcb{} otherwise}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{boolean}\PYG{+w}{ }\PYG{n+nf}{isEmpty}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Returns true if this symbol table contains the specified key.}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @param  key the key}
+\PYG{c+cm}{  * @return \PYGZob{}@code true\PYGZcb{} if this symbol table contains \PYGZob{}@code key\PYGZcb{};}
+\PYG{c+cm}{  *         \PYGZob{}@code false\PYGZcb{} otherwise}
+\PYG{c+cm}{  * @throws IllegalArgumentException if \PYGZob{}@code key\PYGZcb{} is \PYGZob{}@code null\PYGZcb{}}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{boolean}\PYG{+w}{ }\PYG{n+nf}{contains}\PYG{p}{(}\PYG{n}{Key}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{key}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{IllegalArgumentException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}argument to contains() is null\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{     }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{get}\PYG{p}{(}\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Returns the value associated with the given key in this symbol table.}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @param  key the key}
+\PYG{c+cm}{  * @return the value associated with the given key if the key is in the symbol table}
+\PYG{c+cm}{  *     and \PYGZob{}@code null\PYGZcb{} if the key is not in the symbol table}
+\PYG{c+cm}{  * @throws IllegalArgumentException if \PYGZob{}@code key\PYGZcb{} is \PYGZob{}@code null\PYGZcb{}}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{Value}\PYG{+w}{ }\PYG{n+nf}{get}\PYG{p}{(}\PYG{n}{Key}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{key}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }
+\PYG{+w}{         }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{IllegalArgumentException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}argument to get() is null\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{     }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{         }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{key}\PYG{p}{.}\PYG{n+na}{equals}\PYG{p}{(}\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{key}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{           }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{             }\PYG{n}{Value}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{.}\PYG{n+na}{val}\PYG{p}{;}\PYG{+w}{ }
+\PYG{+w}{             }\PYG{n}{y}\PYG{p}{.}\PYG{n+na}{val}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{.}\PYG{n+na}{val}\PYG{p}{;}
+\PYG{+w}{             }\PYG{n}{first}\PYG{p}{.}\PYG{n+na}{val}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{;}
+\PYG{+w}{           }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{           }\PYG{n}{Value}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{.}\PYG{n+na}{val}\PYG{p}{;}\PYG{+w}{ }
+\PYG{+w}{           }\PYG{n}{first}\PYG{p}{.}\PYG{n+na}{val}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{val}\PYG{p}{;}
+\PYG{+w}{           }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{val}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{;}
+\PYG{+w}{           }
+\PYG{+w}{           }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{.}\PYG{n+na}{val}\PYG{p}{;}
+\PYG{+w}{         }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{     }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{     }\PYG{k}{return}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Inserts the specified key\PYGZhy{}value pair into the symbol table, overwriting the old}
+\PYG{c+cm}{  * value with the new value if the symbol table already contains the specified key.}
+\PYG{c+cm}{  * Deletes the specified key (and its associated value) from this symbol table}
+\PYG{c+cm}{  * if the specified value is \PYGZob{}@code null\PYGZcb{}.}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @param  key the key}
+\PYG{c+cm}{  * @param  val the value}
+\PYG{c+cm}{  * @throws IllegalArgumentException if \PYGZob{}@code key\PYGZcb{} is \PYGZob{}@code null\PYGZcb{}}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{put}\PYG{p}{(}\PYG{n}{Key}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Value}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{key}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{IllegalArgumentException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}first argument to put() is null\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{     }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{val}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{         }\PYG{n}{delete}\PYG{p}{(}\PYG{n}{key}\PYG{p}{);}
+\PYG{+w}{         }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{     }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{     }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{         }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{key}\PYG{p}{.}\PYG{n+na}{equals}\PYG{p}{(}\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{key}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{             }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{val}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{;}
+\PYG{+w}{             }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{         }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{     }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{     }\PYG{n}{first}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Node}\PYG{p}{(}\PYG{n}{key}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{);}
+\PYG{+w}{     }\PYG{n}{n}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Removes the specified key and its associated value from this symbol table}
+\PYG{c+cm}{  * (if the key is in this symbol table).}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @param  key the key}
+\PYG{c+cm}{  * @throws IllegalArgumentException if \PYGZob{}@code key\PYGZcb{} is \PYGZob{}@code null\PYGZcb{}}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{delete}\PYG{p}{(}\PYG{n}{Key}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{key}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{IllegalArgumentException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}argument to delete() is null\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{     }\PYG{n}{first}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{delete}\PYG{p}{(}\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{);}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+c1}{// delete key in linked list beginning at Node x}
+\PYG{+w}{ }\PYG{c+c1}{// warning: function call stack too large if table is large}
+\PYG{+w}{ }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{n}{Node}\PYG{+w}{ }\PYG{n+nf}{delete}\PYG{p}{(}\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Key}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{+w}{     }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{key}\PYG{p}{.}\PYG{n+na}{equals}\PYG{p}{(}\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{key}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{         }\PYG{n}{n}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+\PYG{+w}{         }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{;}
+\PYG{+w}{     }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{     }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{delete}\PYG{p}{(}\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{);}
+\PYG{+w}{     }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Returns all keys in the symbol table as an \PYGZob{}@code Iterable\PYGZcb{}.}
+\PYG{c+cm}{  * To iterate over all of the keys in the symbol table named \PYGZob{}@code st\PYGZcb{},}
+\PYG{c+cm}{  * use the foreach notation: \PYGZob{}@code for (Key key : st.keys())\PYGZcb{}.}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @return all keys in the symbol table}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{Iterable}\PYG{o}{\PYGZlt{}}\PYG{n}{Key}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n+nf}{keys}\PYG{p}{()}\PYG{+w}{  }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{n}{Queue}\PYG{o}{\PYGZlt{}}\PYG{n}{Key}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{queue}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Queue}\PYG{o}{\PYGZlt{}}\PYG{n}{Key}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\PYG{+w}{     }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{)}
+\PYG{+w}{         }\PYG{n}{queue}\PYG{p}{.}\PYG{n+na}{enqueue}\PYG{p}{(}\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{key}\PYG{p}{);}
+\PYG{+w}{     }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{queue}\PYG{p}{;}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Prints the symbol table thingamajig.}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{private}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{printLL}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{   }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{)}
+\PYG{+w}{     }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}(\PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{key}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}:\PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n+na}{val}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{})\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{   }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{();}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{ }\PYG{c+cm}{/**}
+\PYG{c+cm}{  * Unit tests the \PYGZob{}@code SequentialSearchST\PYGZcb{} data type.}
+\PYG{c+cm}{  *}
+\PYG{c+cm}{  * @param args the command\PYGZhy{}line arguments}
+\PYG{c+cm}{  */}
+\PYG{+w}{ }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{String}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{args}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{     }\PYG{n}{SequentialSearchST}\PYG{o}{\PYGZlt{}}\PYG{n}{String}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Integer}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{st}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SequentialSearchST}\PYG{o}{\PYGZlt{}}\PYG{n}{String}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Integer}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\PYG{+w}{     }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{!}\PYG{n}{StdIn}\PYG{p}{.}\PYG{n+na}{isEmpty}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{         }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{key}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{StdIn}\PYG{p}{.}\PYG{n+na}{readString}\PYG{p}{();}
+\PYG{+w}{         }\PYG{n}{st}\PYG{p}{.}\PYG{n+na}{put}\PYG{p}{(}\PYG{n}{key}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{     }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{     }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{String}\PYG{+w}{ }\PYG{n}{s}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{n}{st}\PYG{p}{.}\PYG{n+na}{keys}\PYG{p}{())}
+\PYG{+w}{         }\PYG{n}{StdOut}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{st}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{s}\PYG{p}{));}
+\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}
