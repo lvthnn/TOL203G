@@ -1,7 +1,8 @@
 import edu.princeton.cs.algs4.*;
 
-public class CompareBST {
+public class CompareBST_Sim {
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         int trials = Integer.parseInt(args[1]);
@@ -45,11 +46,15 @@ public class CompareBST {
         double tavg_rbt = StdStats.mean(trbt);
         double trbt_sd  = StdStats.stddev(trbt);
 
-        System.out.println("For n = " + n + ", optimal height is " + opt);
-        System.out.printf("[Normal BST]\t Average height  in " + trials + " trials is %3.2f, %3.2f times optimal\n", avg_bst, avg_bst/opt);
-        System.out.printf("[Normal BST]\t Average runtime in " + trials + " trials on " + (sorted ? "sorted " : "random ") + "input is %3.2f, sd %3.2f\n", tavg_bst, tbst_sd);
-        System.out.printf("[Red-Black BST]\t Average height  in " + trials + " trials is %3.2f, %3.2f times optimal\n", avg_rbt, avg_rbt/opt);
-        System.out.printf("[Red-Black BST]\t Average runtime in " + trials + " trials on " + (sorted ? "sorted " : "random ") + "input is %3.2f, sd %3.2f\n", tavg_rbt, trbt_sd);
+        System.out.printf(
+            "%d\t %d\t normal\t %10d \t %10.0f \t %10.8f\t %10.8f\n",
+            n, trials, opt, avg_bst, tavg_bst, tbst_sd
+        );
+        System.out.printf(
+            "%d\t %d\t redblk\t %10d \t %10.0f \t %10.8f\t %10.8f\n",
+            n, trials, opt, avg_rbt, tavg_rbt, trbt_sd
+        );
+
 
     }
 }
