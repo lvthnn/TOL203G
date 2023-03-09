@@ -1,11 +1,11 @@
 # Fdb version 3
-["pdflatex"] 1677801354 "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.tex" "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.pdf" "hd6tol203g" 1677801359
+["pdflatex"] 1677801354 "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.tex" "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.pdf" "hd6tol203g" 1678377918
   "../src/V1/SequentialSearchST.java" 1677795612 5340 b7203273ac35c22253d56d9fa847626e ""
   "../src/V2/BinarySearchST.java" 1677795520 12218 e150c24a24a4c23b6f07402d8f17d3be ""
   "../src/V5/MeasureBST.java" 1677793889 815 8586f93299d7d0d4e0505a755058bce8 ""
   "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.aux" 1677801358 2340 db595c2f672bb5f539cc194fa599a5fb ""
   "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.tex" 1677801350 15273 1e91dc8017f33cdfc332873026f79510 ""
-  "/dev/null" 1677801359 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "/dev/null" 1678377917 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm" 1136768653 4712 9ef4d7d106579d4b136e1529e1a4533c ""
@@ -278,8 +278,8 @@
   "img/v5-keyrsla.png" 1677801268 238861 5a2eab8523b3846a7076949a1722f12d ""
   (generated)
   "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.log"
-  "hd6tol203g.out"
-  "hd6tol203g.log"
-  "hd6tol203g.pdf"
   "hd6tol203g.aux"
+  "hd6tol203g.pdf"
   "/Users/kari/Github/TOL203G/HD6/pdf/hd6tol203g.pdf"
+  "hd6tol203g.log"
+  "hd6tol203g.out"
