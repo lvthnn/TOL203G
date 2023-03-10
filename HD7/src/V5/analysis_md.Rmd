@@ -1,0 +1,76 @@
+---
+title: "tol230g red-black bst analysis"
+author: "Kári Hlynsson"
+date: "2023-03-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+header <- c("n", "trials", "type", "opt_height", "avg_height", "avg_time", "sd_time")
+df <- read.csv("~/Github/TOL203G/HD7/src/V5/data.csv", sep="\t", header=FALSE)
+
+# Hreinsa gögn
+colnames(df) <- header
+df$type <- trimws(df$type)
+```
+
+```{r}
+#
+df %>% ggplot(aes(x = n, y = avg_height, color = type)) +
+  geom_line() +
+  labs(
+    x = "n",
+    y = "avg. height"
+  ) +
+  theme(legend.position="bottom")
+```
+
+```{r}
+df %>% ggplot(aes(x = n, y = avg_time, color = type)) +
+  geom_point(alpha=0.5, position=position_jitter(width=0.5)) +
+  geom_smooth(se=FALSE) +
+  labs(
+    x = "n",
+    y = "avg. time"
+  ) +
+  theme(legend.position="bottom")
+```
+```{r}
+header <- c("n", "trials", "type", "opt_height", "avg_height", "avg_time", "sd_time")
+dfs <- read.csv("~/Github/TOL203G/HD7/src/V5/data_sorted.csv", sep="\t", header=FALSE)
+
+# Hreinsa gögn
+colnames(dfs) <- header
+dfs$type <- trimws(dfs$type)
+
+theoretical <- floor(log(dfs$n, 2))
+
+dfs %>% ggplot(aes(x = n, y = avg_time, color = type)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "n",
+    y = "avg. height"
+  ) +
+  theme(legend.position="bottom")
+
+```
+```{r}
+dfs %>%
+  filter(type == "redblk") %>%
+  ggplot(aes(x = n, y = avg_height, color="measurements")) +
+    geom_point() +
+    geom_line(data=as.data.frame(theoretical), aes(x=dfs$n, y=theoretical, color="theoretical")) +
+    labs(
+      x = "n",
+      y = "avg .height"
+    ) +
+    theme(legend.position = "bottom")
+```
+
