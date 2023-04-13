@@ -100,7 +100,7 @@
 \centerline{\large\coursenum\ \coursename}
 \bigskip
 
-\centerline{\large Kári Hlynsson\footnote{Slóð á Github kóða: \url{https://github.com/lvthnn/TOL203G/tree/master/HD9}}}
+\centerline{\large Kári Hlynsson\footnote{Slóð á Github kóða: \url{https://github.com/lvthnn/TOL203G/tree/master/HD11}}}
 \bigskip
 \centerline{Háskóli Íslands}
 \medskip
@@ -114,9 +114,87 @@
     \item Notið hugmyndina í (a)-lið til að útbúa stefnunet með $N$ hnútum þar sem reiknirit Bellman-Ford tekur $\Theta(N^2)$ tíma. Rökstyðjið keyrslutímann.
 \end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{HD11/pdf/img/V1.png}
+    \label{fig:V1}
+\end{figure}
+
 \subsection*{Lausn}
-\begin{enumerate}
-    \item Vegna þess að 
+\begin{enumerate}[(a)]
+    \item Vegna þess að netið er keðja er enginn möguleiki á því að kall á \texttt{relax()} breyti gildi í \texttt{edgeTo} og \texttt{distTo} fyrir utan hina fyrstu umferð. Umferðirnar eru $|V| - 1 = 3$ talsins. Fylkið \texttt{distTo} er sett fram hér fyrir neðan eins og það leggur sig í lok hverrar umferðar.
+
+    \begin{table}[H]
+        \centering
+        \caption{Staða \texttt{distTo} í upphafsstillingu}
+        \begin{tabular}{lc}
+            \toprule
+            $v$ & \texttt{distTo[$v$]} \\
+            \midrule
+            3   & 0        \\
+            2   & $\infty$ \\
+            1   & $\infty$ \\
+            0   & $\infty$ \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:my_label}
+    \end{table}
+    
+    \begin{table}[H]
+        \centering
+        \caption{Staða \texttt{distTo} í umferð 1}
+        \begin{tabular}{lc}
+            \toprule
+            $v$ & \texttt{distTo[$v$]} \\
+            \midrule
+            3   & 0        \\
+            2   & 3         \\
+            1   & 5 \\
+            0   & 6 \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:my_label}
+    \end{table}
+    
+    \begin{table}[H]
+        \centering
+        \caption{Staða \texttt{distTo} í umferð 2}
+        \begin{tabular}{lc}
+            \toprule
+            $v$ & \texttt{distTo[$v$]} \\
+            \midrule
+            3   & 0        \\
+            2   & 3         \\
+            1   & 5 \\
+            0   & 6 \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:my_label}
+    \end{table}
+    
+    \begin{table}[H]
+        \centering
+        \caption{Staða \texttt{distTo} í umferð 3}
+        \begin{tabular}{lc}
+            \toprule
+            $v$ & \texttt{distTo[$v$]} \\
+            \midrule
+            3   & 0        \\
+            2   & 3         \\
+            1   & 5 \\
+            0   & 6 \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:my_label}
+    \end{table}
+    
+    \item Rifjum upp að tímaflækja Bellman-Ford reikniritsins er $\Theta(|E||V|)$. Sé stefnunetið ámóta keðju eins og í (a)-lið er fjöldi leggja $|V| - 1$. Sé $|V| = N$, þá fæst $|E| = N - 1$ og því er tímaflækjan
+    $\Theta\big(N(N - 1)\big)$ það er að segja $\Theta(N^2)$. Þannig er stefnunet sem uppfyllir þetta skilyrði útbúið með því að tengja hnútana í línulegri röð, eins og í dæmi (a).
 \end{enumerate}
+
+\newpage
+
+\section*{Verkefni 2}
+Segjum að við höfum stefnunet $G$ með þyngdum á leggjum. Stystu vegir hafa verið fundnir fyrir $G$ frá upphafshnúti $s$. Ef við bætum við fasta $K$ við þyngdir allra leggja $G$ þá er ekki víst að stystu vegirnir séu þeir sömu og áður. Sýnið dæmi um net þar sem þetta gildir og rökstyðjið það. Þið megið ráða þyngdum einstakra leggja og gildinu á $K$.
 
 \end{document}
