@@ -198,7 +198,7 @@
 Segjum að við höfum stefnunet $G$ með þyngdum á leggjum. Stystu vegir hafa verið fundnir fyrir $G$ frá upphafshnúti $s$. Ef við bætum við fasta $K$ við þyngdir allra leggja $G$ þá er ekki víst að stystu vegirnir séu þeir sömu og áður. Sýnið dæmi um net þar sem þetta gildir og rökstyðjið það. Þið megið ráða þyngdum einstakra leggja og gildinu á $K$.
 
 \subsection*{Lausn}
-Táknum mengi leggjaþyngdanna með $W$. Við viljum smíða net sem hefur neikvæða þyngd $w_i$ þannig að hliðrun $W$ um $K$ þ.e. aðgerðin $W \oplus K$ hafi í för með sér að stysti vegur breytist. Mynd fyrir neðan sýnir dæmi um slíkt net.
+Ímyndum okkur að mengi leggja sé á forminu þrennda $(v, w, \omega)$ þar sem $\omega$ er þyngd leggjarins en fyrri tvö stökin frá- og eftir-hnútarnir. Við viljum smíða net sem hefur neikvæða þyngd $w_i$ þannig að hliðrun þyngdanna um $K$ þ.e. aðgerðin $E \oplus (0, 0, K)$ hafi í för með sér að stysti vegur breytist. Mynd fyrir neðan sýnir dæmi um slíkt net.
 
 \begin{figure}[H]
     \centering
@@ -207,7 +207,14 @@ Táknum mengi leggjaþyngdanna með $W$. Við viljum smíða net sem hefur neikv
     \label{fig:V2-soln}
 \end{figure}
 \noindent
-Við sjáum að á vinstri hliðinni samastendur stysti vegurinn frá $1$ til $2$ af $1 \to 0$ og
-$0 \to 2$, en eftir hliðrun er stysti vegurinn einfaldlega $$
+Við sjáum að á vinstri hliðinni samanstendur stysti vegurinn frá $0$ til $2$ af $0 \to 1$ og
+$1 \to 2$ með þyngdina $-0.5 + 1.6 = 1.1$, en eftir hliðrun er stysti vegurinn einfaldlega $0 \to 2$ með þyngd $1.7$.
+
+Ef $K$ er valið þannig að það núlli neikvæðu þyngdina út hættir hún að hafa áhrif á lengd vegarins og þá er ''ávinningurinn'' af þeirri aðgerð enginn. Hins vegar þyngist leggurinn sem neikvæða þyngdin núllaði út og það kann að leiða til þess að annar styttri vegur tekur forystu.
+
+\newpage
+
+\section*{Verkefni 3}
+Gefið er stefnunetið fyrir neðan. Rekjið ykkur í gegnum reiknirit Dijkstra með upphafshnút 0. Sýnið í hvaða röð hnútarnir eru settir í stysta-vegar tréð og fyrir hvern hnút rökstyðjið í nokkrum orðum hvers vegna hnúturinn kemur inn í tréð á þessum tíma.
 
 \end{document}
