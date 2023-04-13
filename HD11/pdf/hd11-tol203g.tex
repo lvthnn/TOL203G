@@ -1,0 +1,122 @@
+\documentclass[12pt, a4paper, hidelinks]{article}
+
+\usepackage[icelandic]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+
+\usepackage[outputdir=cache]{minted}
+\usemintedstyle{default}
+\renewcommand{\listingscaption}{Forrit}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[hang, flushmargin, bottom]{footmisc}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{forest}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\newcommand{\cmark}{\color{Green}\ding{51}}
+\newcommand{\xmark}{\color{Red}\ding{55}}
+
+\usepackage{times, mathptmx}
+\usepackage[scaled=0.85]{beramono}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Kári Hlynsson}
+\fancyhead[C]{TÖL203G Heimadæmi 11}
+\fancyhead[R]{\today}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\doctitle}{\uppercase{Heimadæmi 11}}
+\newcommand{\coursename}{Tölvunarfræði 2}
+\newcommand{\coursenum}{TÖL203G}
+
+% ——— Mengjatákn
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% ——— Vigrar
+\renewcommand{\u}{\mathbf{u}}
+\renewcommand{\v}{\mathbf{v}}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+% Define styles for nodes in the binary tree
+\tikzset{
+  binarytree/.style={
+    draw,
+    circle,
+    thick,
+    minimum size=0.75cm,
+    inner sep=0pt,
+    font=\sffamily\small
+  },
+  binaryedge/.style={
+    draw,
+    line width=1mm,
+    red
+  },
+  binarytree empty/.style={
+    draw=none,
+    fill=none
+  }
+}
+
+\graphicspath{{img}}
+
+\begin{document}
+\thispagestyle{plain}
+\centerline{\bfseries\Large\doctitle}
+\medskip
+\centerline{\large\coursenum\ \coursename}
+\bigskip
+
+\centerline{\large Kári Hlynsson\footnote{Slóð á Github kóða: \url{https://github.com/lvthnn/TOL203G/tree/master/HD9}}}
+\bigskip
+\centerline{Háskóli Íslands}
+\medskip
+\centerline{\today}
+
+\section*{Verkefni 1}
+Í þessu dæmi gerum við ráð fyrir að Bellman-Ford reikniritið vinni með leggina í hækkandi röð eftir \emph{frá}-hnúti (þ.e. hnútinum $v$ í $v \to w$).
+\begin{enumerate}[(a)]
+    \item Hermið reiknirit Bellman-Ford á stefnunetinu hér fyrir neðan, með upphafshnútinn 3. Sýnið stöðuna á \texttt{distTo} eftir hverja umferð.
+
+    \item Notið hugmyndina í (a)-lið til að útbúa stefnunet með $N$ hnútum þar sem reiknirit Bellman-Ford tekur $\Theta(N^2)$ tíma. Rökstyðjið keyrslutímann.
+\end{enumerate}
+
+\subsection*{Lausn}
+\begin{enumerate}
+    \item Vegna þess að 
+\end{enumerate}
+
+\end{document}
