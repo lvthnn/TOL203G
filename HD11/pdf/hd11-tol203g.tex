@@ -217,4 +217,96 @@ Ef $K$ er valið þannig að það núlli neikvæðu þyngdina út hættir hún 
 \section*{Verkefni 3}
 Gefið er stefnunetið fyrir neðan. Rekjið ykkur í gegnum reiknirit Dijkstra með upphafshnút 0. Sýnið í hvaða röð hnútarnir eru settir í stysta-vegar tréð og fyrir hvern hnút rökstyðjið í nokkrum orðum hvers vegna hnúturinn kemur inn í tréð á þessum tíma.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics{HD11/pdf/img/V3.png}
+    \label{fig:V3}
+\end{figure}
+
+\subsection*{Lausn}
+Myndirnar hér fyrir neðan sýna hvernig reikniritið bætir við í tréð, ásamt ástandi \texttt{distTo} fylkisins og biðraðarinnar \texttt{pq}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im1.png}
+    \label{fig:dijkstra1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im2.png}
+    \label{fig:dijkstra2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im3.png}
+    \label{fig:dijkstra3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im4.png}
+    \label{fig:dijkstra4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im5.png}
+    \label{fig:dijkstra5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im6.png}
+    \label{fig:dijkstra6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im7.png}
+    \label{fig:dijkstra7}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im8.png}
+    \label{fig:dijkstra8}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im9.png}
+    \label{fig:dijkstra9}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{HD11/pdf/img/dijkstra/im10.png}
+    \label{fig:dijkstra10}
+\end{figure}
+
+\noindent
+Á seinni myndinni á bls. 6 verður slökun þ.a. \texttt{distTo[6]} minnkar.
+
+\newpage
+
+\section*{Verkefni 4}
+Sýnið stefnunet með þyngdir á leggjum, þar sem ein þyngdin er neikvæð, en
+reiknirit Dijkstra gefur samt rétta útkomu. Netið þarf að hafa a.m.k. 4 hnúta.
+Rökstyðjið það að reikniritið gefi rétta útkomu.
+
+\subsection*{Lausn}
+Umbeðið stefnunet er sýnt fyrir neðan á mynd. Hér gerum við ráð fyrir að $2$ sé upphafshnúturinn þegar reikniritið er keyrt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{HD11/pdf/img/dijkstra/dijkstra-negative-correct.png}
+    \caption{Stefnunet með neikvæðum legg þar sem Dijkstra skilar réttri niðurstöðu}
+    \label{fig:dijkstra-negative}
+\end{figure}
+
+\noindent
+Þyngd leggjarins $2 \to 4$ er neikvæð en reikniritið skilar samt réttri niðurstöðu því stysti vegur frá $2$ til $4$ getur bara verið neikvæði leggurinn. Hann hefur jafnframt engin áhrif á hina vegina og því kemst reikniritið að réttri niðurstöðu.
 \end{document}
